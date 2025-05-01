@@ -1,9 +1,12 @@
+import NavBar from "../components/NavBar";
+import "../css/LandingPage.css";
+
 function LandingPage() {
   return (
-    <div>
-      <h1>this is the landing page</h1>
-      <p>hello!</p>
-    </div>
+    <>
+      <NavBar></NavBar>
+      <div>test test</div>
+    </>
   );
 }
 
