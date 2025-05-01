@@ -5,7 +5,6 @@ function LandingPage() {
   return (
     <>
       <NavBar></NavBar>
-      <div>test test</div>
     </>
   );
 }
