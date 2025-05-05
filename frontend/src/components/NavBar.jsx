@@ -40,7 +40,7 @@ function NavBar() {
 
       {/* mobile hamburger menu */}
       <div
-        className={`flex flex-col fixed bg-zinc-900 inset-x-4 top-8 z-50 rounded-3xl p-6 ring-1 ring-zinc-800 transition-all duration-300 ease-in-out ${
+        className={`flex flex-col fixed bg-zinc-900 inset-x-4 top-4 z-50 rounded-3xl p-6 ring-1 ring-zinc-800 transition-all duration-300 ease-in-out ${
           menuOpen ? "opacity-100" : "opacity-0 pointer-events-none"
         }`}
       >
