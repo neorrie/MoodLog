@@ -27,10 +27,10 @@ function LandingPage() {
             </p>
           </div>
           <div className="flex space-x-4 mt-4 lg:space-x-10">
-            <button className="bg-zinc-800 text-zinc-300 hover:bg-zinc-700 rounded-full py-3 px-12">
+            <button className="bg-zinc-800 text-zinc-300 hover:bg-zinc-700 rounded-full py-3 px-12 transition ease-in-out duration-300">
               Get Started
             </button>
-            <button className="bg-zinc-800 text-zinc-300 hover:bg-zinc-700 rounded-full py-3 px-12">
+            <button className="bg-zinc-800 text-zinc-300 hover:bg-zinc-700 rounded-full py-3 px-12 transition ease-in-out duration-300">
               Sign In
             </button>
           </div>
