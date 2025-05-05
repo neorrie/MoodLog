@@ -27,11 +27,9 @@ function NavBar() {
         <button
           onClick={() => setMenuOpen(!menuOpen)}
           className="md:hidden flex items-center px-4 py-2"
-          aria-label="Toggle menu"
-          aria-expanded={menuOpen}
         >
           <box-icon
-            name={menuOpen ? "x" : "menu"}
+            name="menu"
             color="grey"
             className="cursor-pointer"
           ></box-icon>
