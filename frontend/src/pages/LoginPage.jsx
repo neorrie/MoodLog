@@ -1,8 +1,13 @@
 import Lottie from "lottie-react";
-import groovyWalkAnimation from "./groovyWalk.json";
+import zenAnimation from "../assets/lotties/zen.json";
 
 function LoginPage() {
-  return <div>hello</div>;
+  return (
+    <div>
+      hello
+      <Lottie animationData={zenAnimation} loop={true} />
+    </div>
+  );
 }
 
 export default LoginPage;
