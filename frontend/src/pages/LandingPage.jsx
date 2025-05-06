@@ -16,8 +16,8 @@ function LandingPage() {
         <div className="flex flex-col items-center lg:order-1 lg:items-start">
           <div>
             <p className="text-zinc-200 text-center my-4 text-3xl font-bold md:text-4xl lg:text-left lg:mb-12">
-              reflect <span className="inline text-indigo-500">simply</span>,
-              grow <span className="inline text-indigo-500">mindfully</span>
+              reflect <span className="text-indigo-500">simply</span>, grow{" "}
+              <span className="text-indigo-500">mindfully</span>
             </p>
 
             <p
