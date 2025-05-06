@@ -1,5 +1,5 @@
 import NavBar from "../components/NavBar";
-import landingImg from "../assets/landingImg.png";
+import landingImg from "../assets/images/landingImg.png";
 
 function LandingPage() {
   return (

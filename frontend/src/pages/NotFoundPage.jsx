@@ -1,5 +1,5 @@
 import NavBar from "../components/NavBar.jsx";
-import errorImg from "../assets/astrofish.png";
+import errorImg from "../assets/images/astrofish.png";
 import { Link } from "react-router-dom";
 
 function NotFoundPage() {
