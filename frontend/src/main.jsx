@@ -7,6 +7,7 @@ import NotFoundPage from "./pages/NotFoundPage.jsx";
 import AboutPage from "./pages/AboutPage.jsx";
 import GalleryPage from "./pages/GalleryPage.jsx";
 import LoginPage from "./pages/LoginPage.jsx";
+import RegistrationPage from "./pages/RegistrationPage.jsx";
 
 const router = createBrowserRouter([
   { path: "/", element: <App /> },
@@ -14,6 +15,7 @@ const router = createBrowserRouter([
   { path: "/about", element: <AboutPage /> },
   { path: "/gallery", element: <GalleryPage /> },
   { path: "/login", element: <LoginPage /> },
+  { path: "/register", element: <RegistrationPage /> },
 ]);
 
 createRoot(document.getElementById("root")).render(

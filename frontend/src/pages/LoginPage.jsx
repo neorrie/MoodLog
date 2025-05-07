@@ -1,7 +1,7 @@
 import Lottie from "lottie-react";
 import zenAnimation from "../assets/lotties/zen.json";
 import NavBar from "../components/NavBar.jsx";
-// import profilePicPlaceholder from "../assets/images/profilePic.png";
+import { Link } from "react-router-dom";
 
 function LoginPage() {
   return (
@@ -13,10 +13,6 @@ function LoginPage() {
         </div>
 
         <div>
-          {/* <img
-            src={profilePicPlaceholder}
-            className="hidden w-24 md:flex md:justify-self-center mb-4"
-          /> */}
           <p className="text-2xl md:text-3xl font-bold text-center my-2">
             Welcome to MoodLog
           </p>
@@ -51,7 +47,7 @@ function LoginPage() {
             <button
               type="submit"
               className="my-2 bg-indigo-500 hover:bg-indigo-600 w-76 py-4 rounded-full font-semibold
-              transition ease-in-out duration-300"
+              transition ease-in-out duration-250 cursor-pointer"
             >
               Login
             </button>
@@ -59,9 +55,11 @@ function LoginPage() {
 
           <p className="text-center text-sm">
             Don't have an account?{" "}
-            <span className="text-indigo-500 hover:text-indigo-600">
-              Register
-            </span>
+            <Link to={"/register"}>
+              <span className="text-indigo-500 hover:text-indigo-600 transition ease-in-out duration-250">
+                Register
+              </span>
+            </Link>
           </p>
         </div>
       </div>

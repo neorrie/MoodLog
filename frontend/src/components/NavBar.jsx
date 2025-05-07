@@ -39,28 +39,23 @@ function NavBar() {
 
       {/* mobile hamburger popup */}
       <div
-        className={`flex flex-col fixed bg-zinc-900 inset-x-4 top-4 z-50 rounded-3xl p-6 ring-1 ring-zinc-800 transition-all duration-300 ease-in-out ${
-          menuOpen ? "opacity-100" : "opacity-0 pointer-events-none"
-        }`}
+        className={`flex flex-col fixed bg-zinc-900 inset-x-4 top-20 z-100 rounded-3xl p-6 ring-1 ring-zinc-800
+          transition-all duration-300 ease-in-out ${
+            menuOpen ? "opacity-100" : "opacity-0 pointer-events-none"
+          }`}
       >
-        <div className="flex justify-between items-center mb-6 p-2">
-          <p className="text-zinc-400 font-medium">Navigation</p>
-          <button onClick={() => setMenuOpen(false)} className="cursor-pointer">
-            <box-icon name="x" color="grey"></box-icon>
-          </button>
-        </div>
         <ul className="divide-y divide-zinc-800 text-zinc-200">
-          <li className="p-2">
+          <li className="p-2 hover:text-zinc-400">
             <Link to={"/"} onClick={() => setMenuOpen(false)}>
               Home
             </Link>
           </li>
-          <li className="p-2">
+          <li className="p-2 hover:text-zinc-400">
             <Link to={"/about"} onClick={() => setMenuOpen(false)}>
               About
             </Link>
           </li>
-          <li className="p-2">
+          <li className="p-2 hover:text-zinc-400">
             <Link to={"/gallery"} onClick={() => setMenuOpen(false)}>
               Gallery
             </Link>
