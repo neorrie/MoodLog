@@ -1,5 +1,5 @@
 import NavBar from "../components/NavBar";
-import landingImg from "../assets/images/landingImg.png";
+import landingImgPlaceholder from "../assets/images/landingImg.png";
 import { Link } from "react-router-dom";
 
 function LandingPage() {
@@ -11,7 +11,7 @@ function LandingPage() {
       lg:flex-row lg:mx-46"
       >
         <div className="max-w-96 lg:max-w-2xl my-6 lg:order-3">
-          <img src={landingImg} />
+          <img src={landingImgPlaceholder} />
         </div>
         <div className="flex flex-col items-center lg:order-1 lg:items-start">
           <div>

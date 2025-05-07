@@ -1,18 +1,23 @@
 import Lottie from "lottie-react";
 import zenAnimation from "../assets/lotties/zen.json";
 import NavBar from "../components/NavBar.jsx";
+// import profilePicPlaceholder from "../assets/images/profilePic.png";
 
 function LoginPage() {
   return (
     <>
       <NavBar></NavBar>
-      <div className="h-[85dvh] text-zinc-200 flex flex-col items-center justify-center">
-        <div className="w-56">
+      <div className="h-[85dvh] text-zinc-200 flex flex-col md:flex-row md:gap-20 md:mx-10 items-center justify-center">
+        <div className="w-56 md:w-[100%] md:max-w-108">
           <Lottie animationData={zenAnimation} loop={true} />
         </div>
 
         <div>
-          <p className="text-2xl font-bold text-center my-2">
+          {/* <img
+            src={profilePicPlaceholder}
+            className="hidden w-24 md:flex md:justify-self-center mb-4"
+          /> */}
+          <p className="text-2xl md:text-3xl font-bold text-center my-2">
             Welcome to MoodLog
           </p>
 
@@ -51,7 +56,7 @@ function LoginPage() {
             </button>
           </form>
 
-          <p className="text-center">
+          <p className="text-center text-sm">
             Don't have an account?{" "}
             <span className="text-indigo-500 hover:text-indigo-600">
               Register!
