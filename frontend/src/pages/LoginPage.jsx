@@ -50,7 +50,8 @@ function LoginPage() {
             </div>
             <button
               type="submit"
-              className="my-2 bg-indigo-500 hover:bg-indigo-600 w-76 py-4 rounded-full font-semibold"
+              className="my-2 bg-indigo-500 hover:bg-indigo-600 w-76 py-4 rounded-full font-semibold
+              transition ease-in-out duration-300"
             >
               Login
             </button>
