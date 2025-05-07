@@ -29,11 +29,11 @@ function LandingPage() {
             </p>
           </div>
           <div className="flex space-x-4 mt-4 lg:space-x-10">
-            <button className="bg-zinc-800 text-zinc-200 hover:bg-zinc-700 rounded-full py-3 px-12 transition ease-in-out duration-300 cursor-pointer">
+            <button className="bg-zinc-800 text-zinc-200 hover:bg-zinc-900 rounded-full py-3 px-12 transition ease-in-out duration-300 cursor-pointer">
               Get Started
             </button>
             <Link to={"/login"}>
-              <button className="bg-zinc-800 text-zinc-200 hover:bg-zinc-700 rounded-full py-3 px-12 transition ease-in-out duration-300 cursor-pointer">
+              <button className="bg-zinc-800 text-zinc-200 hover:bg-zinc-900 rounded-full py-3 px-12 transition ease-in-out duration-300 cursor-pointer">
                 Sign In
               </button>
             </Link>

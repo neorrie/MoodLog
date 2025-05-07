@@ -12,30 +12,50 @@ function LoginPage() {
         </div>
 
         <div>
-          <p className="text-2xl font-bold mb-6 text-center">
+          <p className="text-2xl font-bold text-center my-2">
             Welcome to MoodLog
           </p>
 
           <form action="" className="flex flex-col items-center">
-            <div className="flex items-center mt-6 mb-3 bg-zinc-700 px-16 py-4 rounded-full">
-              <box-icon type="solid" name="user" color="grey"></box-icon>
-              <input type="text" placeholder="Username" />
+            <div className="grid grid-cols-[15%_85%] my-3 items-center bg-zinc-800 rounded-full w-76">
+              <box-icon
+                type="solid"
+                name="user"
+                color="grey"
+                className="justify-self-center"
+              ></box-icon>
+              <input
+                type="text"
+                placeholder="Username"
+                className="px-2 py-4 outline-0"
+              />
             </div>
-            <div className="flex items-center mb-6 mt-3 bg-zinc-700 px-16 py-4 rounded-full">
-              <box-icon type="solid" name="lock" color="grey"></box-icon>
-              <input type="password" placeholder="Password" />
+            <div className="grid grid-cols-[15%_85%] my-3 items-center bg-zinc-800 rounded-full w-76">
+              <box-icon
+                type="solid"
+                name="lock"
+                color="grey"
+                className="justify-self-center"
+              ></box-icon>
+              <input
+                type="text"
+                placeholder="Password"
+                className="px-2 py-4 outline-0"
+              />
             </div>
             <button
               type="submit"
-              className="my-4 bg-zinc-800 px-8 py-4 rounded-full"
+              className="my-2 bg-indigo-500 hover:bg-indigo-600 w-76 py-4 rounded-full font-semibold"
             >
               Login
             </button>
           </form>
 
-          <p className="mt-20 text-center">
+          <p className="text-center">
             Don't have an account?{" "}
-            <span className="text-indigo-500">Register!</span>
+            <span className="text-indigo-500 hover:text-indigo-600">
+              Register!
+            </span>
           </p>
         </div>
       </div>
