@@ -24,6 +24,9 @@ function NavBar() {
           <li className="mx-4">
             <Link to={"/gallery"}>Gallery</Link>
           </li>
+          <li className="mx-4">
+            <Link to={"/login"}>Sign in</Link>
+          </li>
         </ul>
         <button
           onClick={() => setMenuOpen(!menuOpen)}
@@ -39,7 +42,7 @@ function NavBar() {
 
       {/* mobile hamburger popup */}
       <div
-        className={`flex flex-col fixed bg-zinc-900 inset-x-4 top-20 z-100 rounded-3xl p-6 ring-1 ring-zinc-800
+        className={`md:hidden flex flex-col fixed bg-zinc-900 inset-x-4 top-20 z-100 rounded-3xl p-6 ring-1 ring-zinc-800
           transition-all duration-300 ease-in-out ${
             menuOpen ? "opacity-100" : "opacity-0 pointer-events-none"
           }`}
@@ -58,6 +61,11 @@ function NavBar() {
           <li className="p-2 hover:text-zinc-400">
             <Link to={"/gallery"} onClick={() => setMenuOpen(false)}>
               Gallery
+            </Link>
+          </li>
+          <li className="p-2 hover:text-zinc-400">
+            <Link to={"/login"} onClick={() => setMenuOpen(false)}>
+              Log in
             </Link>
           </li>
         </ul>
