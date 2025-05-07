@@ -59,7 +59,7 @@ function LoginPage() {
           <p className="text-center text-sm">
             Don't have an account?{" "}
             <span className="text-indigo-500 hover:text-indigo-600">
-              Register!
+              Register
             </span>
           </p>
         </div>
