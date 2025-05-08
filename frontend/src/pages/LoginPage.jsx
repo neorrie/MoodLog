@@ -44,13 +44,15 @@ function LoginPage() {
                 className="px-2 py-4 outline-0"
               />
             </div>
-            <button
-              type="submit"
-              className="my-2 bg-indigo-500 hover:bg-indigo-600 w-76 py-4 rounded-full font-semibold
+            <Link to={"/dashboard"}>
+              <button
+                type="submit"
+                className="my-2 bg-indigo-500 hover:bg-indigo-600 w-76 py-4 rounded-full font-semibold
               transition ease-in-out duration-250 cursor-pointer"
-            >
-              Login
-            </button>
+              >
+                Login
+              </button>
+            </Link>
           </form>
 
           <p className="text-center text-sm">
