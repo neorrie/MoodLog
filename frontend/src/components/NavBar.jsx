@@ -14,17 +14,17 @@ function NavBar() {
             M<box-icon name="book-reader" color="white"></box-icon>dLog
           </Link>
         </div>
-        <ul className="hidden md:flex text-zinc-200">
-          <li className="mx-4">
+        <ul className="hidden md:flex text-zinc-200 gap-x-8 mx-4">
+          <li>
             <Link to={"/"}>Home</Link>
           </li>
-          <li className="mx-4">
+          <li>
             <Link to={"/about"}>About</Link>
           </li>
-          <li className="mx-4">
+          <li>
             <Link to={"/gallery"}>Gallery</Link>
           </li>
-          <li className="mx-4">
+          <li>
             <Link to={"/login"}>Sign in</Link>
           </li>
         </ul>
