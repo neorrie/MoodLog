@@ -40,6 +40,136 @@ function Dashboard() {
           </div>
           <img src="https://placehold.co/55x55" className="rounded-2xl" />
         </div>
+        {/* extra journal entries start here */}
+        <div
+          className="bg-zinc-800 hover:bg-zinc-900 flex justify-between items-center px-4 py-2 my-4 rounded-2xl
+        cursor-pointer transition ease-in-out duration-200"
+        >
+          <div className="grid grid-cols-[30%_70%] mr-2 ">
+            <p className="col-span-2 font-semibold">Exploring Nature Trails</p>
+            <p className="text-zinc-400">2025-05-05</p>
+            <p className="truncate text-zinc-400">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta
+              aperiam sed voluptas corporis ratione deleniti esse praesentium
+              tenetur, quidem vero odio repellendus dolor? Impedit similique
+              doloribus consequuntur ducimus eveniet voluptate?
+            </p>
+          </div>
+          <img src="https://placehold.co/55x55" className="rounded-2xl" />
+        </div>
+        <div
+          className="bg-zinc-800 hover:bg-zinc-900 flex justify-between items-center px-4 py-2 my-4 rounded-2xl
+        cursor-pointer transition ease-in-out duration-200"
+        >
+          <div className="grid grid-cols-[30%_70%] mr-2 ">
+            <p className="col-span-2 font-semibold">Exploring Nature Trails</p>
+            <p className="text-zinc-400">2025-05-05</p>
+            <p className="truncate text-zinc-400">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta
+              aperiam sed voluptas corporis ratione deleniti esse praesentium
+              tenetur, quidem vero odio repellendus dolor? Impedit similique
+              doloribus consequuntur ducimus eveniet voluptate?
+            </p>
+          </div>
+          <img src="https://placehold.co/55x55" className="rounded-2xl" />
+        </div>
+        <div
+          className="bg-zinc-800 hover:bg-zinc-900 flex justify-between items-center px-4 py-2 my-4 rounded-2xl
+        cursor-pointer transition ease-in-out duration-200"
+        >
+          <div className="grid grid-cols-[30%_70%] mr-2 ">
+            <p className="col-span-2 font-semibold">Exploring Nature Trails</p>
+            <p className="text-zinc-400">2025-05-05</p>
+            <p className="truncate text-zinc-400">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta
+              aperiam sed voluptas corporis ratione deleniti esse praesentium
+              tenetur, quidem vero odio repellendus dolor? Impedit similique
+              doloribus consequuntur ducimus eveniet voluptate?
+            </p>
+          </div>
+          <img src="https://placehold.co/55x55" className="rounded-2xl" />
+        </div>
+        <div
+          className="bg-zinc-800 hover:bg-zinc-900 flex justify-between items-center px-4 py-2 my-4 rounded-2xl
+        cursor-pointer transition ease-in-out duration-200"
+        >
+          <div className="grid grid-cols-[30%_70%] mr-2 ">
+            <p className="col-span-2 font-semibold">Exploring Nature Trails</p>
+            <p className="text-zinc-400">2025-05-05</p>
+            <p className="truncate text-zinc-400">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta
+              aperiam sed voluptas corporis ratione deleniti esse praesentium
+              tenetur, quidem vero odio repellendus dolor? Impedit similique
+              doloribus consequuntur ducimus eveniet voluptate?
+            </p>
+          </div>
+          <img src="https://placehold.co/55x55" className="rounded-2xl" />
+        </div>
+        <div
+          className="bg-zinc-800 hover:bg-zinc-900 flex justify-between items-center px-4 py-2 my-4 rounded-2xl
+        cursor-pointer transition ease-in-out duration-200"
+        >
+          <div className="grid grid-cols-[30%_70%] mr-2 ">
+            <p className="col-span-2 font-semibold">Exploring Nature Trails</p>
+            <p className="text-zinc-400">2025-05-05</p>
+            <p className="truncate text-zinc-400">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta
+              aperiam sed voluptas corporis ratione deleniti esse praesentium
+              tenetur, quidem vero odio repellendus dolor? Impedit similique
+              doloribus consequuntur ducimus eveniet voluptate?
+            </p>
+          </div>
+          <img src="https://placehold.co/55x55" className="rounded-2xl" />
+        </div>
+        <div
+          className="bg-zinc-800 hover:bg-zinc-900 flex justify-between items-center px-4 py-2 my-4 rounded-2xl
+        cursor-pointer transition ease-in-out duration-200"
+        >
+          <div className="grid grid-cols-[30%_70%] mr-2 ">
+            <p className="col-span-2 font-semibold">Exploring Nature Trails</p>
+            <p className="text-zinc-400">2025-05-05</p>
+            <p className="truncate text-zinc-400">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta
+              aperiam sed voluptas corporis ratione deleniti esse praesentium
+              tenetur, quidem vero odio repellendus dolor? Impedit similique
+              doloribus consequuntur ducimus eveniet voluptate?
+            </p>
+          </div>
+          <img src="https://placehold.co/55x55" className="rounded-2xl" />
+        </div>
+        <div
+          className="bg-zinc-800 hover:bg-zinc-900 flex justify-between items-center px-4 py-2 my-4 rounded-2xl
+        cursor-pointer transition ease-in-out duration-200"
+        >
+          <div className="grid grid-cols-[30%_70%] mr-2 ">
+            <p className="col-span-2 font-semibold">Exploring Nature Trails</p>
+            <p className="text-zinc-400">2025-05-05</p>
+            <p className="truncate text-zinc-400">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta
+              aperiam sed voluptas corporis ratione deleniti esse praesentium
+              tenetur, quidem vero odio repellendus dolor? Impedit similique
+              doloribus consequuntur ducimus eveniet voluptate?
+            </p>
+          </div>
+          <img src="https://placehold.co/55x55" className="rounded-2xl" />
+        </div>
+        <div
+          className="bg-zinc-800 hover:bg-zinc-900 flex justify-between items-center px-4 py-2 my-4 rounded-2xl
+        cursor-pointer transition ease-in-out duration-200"
+        >
+          <div className="grid grid-cols-[30%_70%] mr-2 ">
+            <p className="col-span-2 font-semibold">Exploring Nature Trails</p>
+            <p className="text-zinc-400">2025-05-05</p>
+            <p className="truncate text-zinc-400">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta
+              aperiam sed voluptas corporis ratione deleniti esse praesentium
+              tenetur, quidem vero odio repellendus dolor? Impedit similique
+              doloribus consequuntur ducimus eveniet voluptate?
+            </p>
+          </div>
+          <img src="https://placehold.co/55x55" className="rounded-2xl" />
+        </div>
+        {/* extra journal entries end here */}
       </div>
     </div>
   );
