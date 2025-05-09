@@ -5,7 +5,7 @@ function Dashboard() {
   return (
     <div className="text-zinc-200">
       <DashboardNavBar></DashboardNavBar>
-      <div className="lg:flex lg:gap-x-4">
+      <div className="lg:flex lg:gap-x-4 m-6">
         <div className="p-8 lg:w-[50%]">
           <div className="flex justify-between items-center">
             <p className="text-3xl font-bold">Entries</p>
@@ -191,7 +191,7 @@ function Dashboard() {
           </div>
           {/* extra journal entries end here */}
         </div>
-        <div className="hidden lg:flex flex-col p-8 w-[50%] gap-8">
+        <div className="hidden lg:flex flex-col p-8 w-[50%] gap-8 bg-zinc-800 rounded-3xl">
           <img src="https://placehold.co/600x400" />
           <p className="font-bold text-3xl">Exploring Nature Trails</p>
           <p>
