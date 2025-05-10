@@ -39,7 +39,7 @@ function LoginPage() {
                 className="justify-self-center"
               ></box-icon>
               <input
-                type="text"
+                type="password"
                 placeholder="Password"
                 className="px-2 py-4 outline-0"
               />
