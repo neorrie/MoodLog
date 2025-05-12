@@ -1,8 +1,12 @@
 import DashboardNavBar from "../components/DashboardNavBar";
 import "boxicons";
 import JournalEntry from "../components/JournalEntry";
+import { useState } from "react";
 
 function Dashboard() {
+  const [searchEntry, setSearchEntry] = useState("");
+  const [entryOpen, setEntryOpen] = useState(null);
+
   const journalData = [
     {
       title: "Exploring Nature Trails",
@@ -60,18 +64,28 @@ function Dashboard() {
               type="text"
               className="grow outline-0"
               placeholder="Search"
+              value={searchEntry}
+              onChange={(event) => {
+                setSearchEntry(event.target.value);
+                setEntryOpen(null);
+              }}
             />
           </div>
           {/* journal entries should go here */}
           {journalData.map((journal, index) => {
             return (
-              <JournalEntry
-                key={index}
-                title={journal.title}
-                date={journal.date}
-                imgURL={journal.imgURL}
-                caption={journal.caption}
-              />
+              journal.title.toLowerCase().includes(searchEntry) && (
+                <JournalEntry
+                  key={index}
+                  id={index}
+                  title={journal.title}
+                  date={journal.date}
+                  imgURL={journal.imgURL}
+                  caption={journal.caption}
+                  entryOpen={entryOpen}
+                  setEntryOpen={setEntryOpen}
+                />
+              )
             );
           })}
         </div>

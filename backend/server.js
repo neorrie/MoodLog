@@ -11,3 +11,8 @@ app.listen(3000, () => {
 app.get("/", async (req, res) => {
   res.send("this is working");
 });
+
+app.post("/register", async (req, res) => {
+  const testEntry = req.body;
+  console.log(testEntry);
+});
