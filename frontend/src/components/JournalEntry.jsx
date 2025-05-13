@@ -17,7 +17,7 @@ function JournalEntry(props) {
             <p className="text-zinc-400 truncate flex-1">{props.caption}</p>
           </div>
         </div>
-        <img src={props.imgURL} className="rounded-2xl" />
+        <img src={props.imgURL} className="rounded-2xl max-w-13" />
       </div>
 
       <EntryPopup
