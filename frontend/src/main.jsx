@@ -9,6 +9,7 @@ import GalleryPage from "./pages/GalleryPage.jsx";
 import LoginPage from "./pages/LoginPage.jsx";
 import RegistrationPage from "./pages/RegistrationPage.jsx";
 import Dashboard from "./pages/Dashboard.jsx";
+import NewEntryPage from "./pages/NewEntryPage.jsx";
 
 const router = createBrowserRouter([
   { path: "/", element: <App /> },
@@ -18,6 +19,7 @@ const router = createBrowserRouter([
   { path: "/login", element: <LoginPage /> },
   { path: "/register", element: <RegistrationPage /> },
   { path: "/dashboard", element: <Dashboard /> },
+  { path: "/new", element: <NewEntryPage /> },
 ]);
 
 createRoot(document.getElementById("root")).render(

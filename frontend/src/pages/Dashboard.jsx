@@ -2,6 +2,7 @@ import DashboardNavBar from "../components/DashboardNavBar";
 import "boxicons";
 import JournalEntry from "../components/JournalEntry";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 function Dashboard() {
   const [searchEntry, setSearchEntry] = useState("");
@@ -51,12 +52,14 @@ function Dashboard() {
         <div className="p-8">
           <div className="flex justify-between items-center">
             <p className="text-3xl font-bold">Entries</p>
-            <button
-              className="bg-indigo-500 hover:bg-indigo-600 px-4 py-2 rounded-2xl font-semibold cursor-pointer
+            <Link to={"/new"}>
+              <button
+                className="bg-indigo-500 hover:bg-indigo-600 px-4 py-2 rounded-2xl font-semibold cursor-pointer
           transition ease-in-out duration-200"
-            >
-              + New Entry
-            </button>
+              >
+                + New Entry
+              </button>
+            </Link>
           </div>
           <div className="bg-zinc-800 mt-4 mb-8 px-4 py-2 w-full rounded-2xl flex gap-2">
             <box-icon name="search-alt-2" color="grey"></box-icon>
