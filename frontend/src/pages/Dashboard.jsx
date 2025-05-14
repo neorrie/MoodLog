@@ -1,6 +1,6 @@
-import DashboardNavBar from "../components/DashboardNavBar";
+import DashboardNavBar from "../components/DashboardNavBar.jsx";
 import "boxicons";
-import JournalEntry from "../components/JournalEntry";
+import JournalEntry from "../components/JournalEntry.jsx";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 

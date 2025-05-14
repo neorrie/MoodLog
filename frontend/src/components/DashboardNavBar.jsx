@@ -6,7 +6,7 @@ function DashboardNavBar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <div className="p-6">
+    <div className="p-6 text-zinc-200">
       <div className="flex justify-end">
         <img
           src={profilePicPlaceholder}
