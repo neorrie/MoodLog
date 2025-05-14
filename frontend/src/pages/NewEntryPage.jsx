@@ -16,7 +16,7 @@ function NewEntryPage() {
             <input
               type="text"
               id="title"
-              className="bg-zinc-700 w-full rounded-sm px-2 py-2 outline-0"
+              className="bg-zinc-700 w-full rounded-sm px-2 py-2 focus:outline-1 outline-zinc-500"
             />
           </div>
           <div>
@@ -26,7 +26,7 @@ function NewEntryPage() {
             <input
               type="date"
               id="date"
-              className="bg-zinc-700 w-full rounded-sm px-2 py-2 outline-0"
+              className="bg-zinc-700 w-full rounded-sm px-2 py-2 focus:outline-1 outline-zinc-500"
             />
           </div>
           <div className="col-span-2">
@@ -35,7 +35,7 @@ function NewEntryPage() {
             </label>
             <textarea
               id="caption"
-              className="bg-zinc-700 w-full rounded-sm px-2 py-2 outline-0"
+              className="bg-zinc-700 w-full rounded-sm px-2 py-2 focus:outline-1 outline-zinc-500"
             ></textarea>
           </div>
           <button className="bg-indigo-500 col-span-2 py-2 rounded-2xl">
