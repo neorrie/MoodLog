@@ -7,7 +7,7 @@ function LandingPage() {
     <div>
       <NavBar></NavBar>
       <div
-        className="h-[85dvh] flex flex-col items-center justify-center mx-10
+        className="h-[85svh] flex flex-col items-center justify-center mx-10
       lg:flex-row lg:mx-46"
       >
         <div className="max-w-96 lg:max-w-2xl my-6 lg:order-3">
