@@ -2,6 +2,7 @@ import Lottie from "lottie-react";
 import zenAnimation from "../assets/lotties/zen.json";
 import NavBar from "../components/NavBar.jsx";
 import { Link } from "react-router-dom";
+import { useForm } from "react-hook-form";
 
 function RegistrationPage() {
   return (
@@ -70,8 +71,7 @@ function RegistrationPage() {
                 className="px-2 py-4 outline-0"
               />
             </div>
-            
-     
+
             <button
               type="submit"
               className="my-2 bg-indigo-500 hover:bg-indigo-600 w-76 py-4 rounded-full font-semibold

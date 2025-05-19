@@ -4,15 +4,17 @@ import { connectDB } from "./config/db.js";
 const app = express();
 app.use(express.json());
 
-app.listen(3000, () => {
+const users = [];
+
+app.listen(8888, () => {
   connectDB();
 });
 
-app.get("/", async (req, res) => {
-  res.send("this is working");
+app.get("/users", async (req, res) => {
+  res.json(users);
 });
 
-app.post("/register", async (req, res) => {
-  const testEntry = req.body;
-  console.log(testEntry);
+app.post("/users", async (req, res) => {
+  const user = req.body;
+  console.log(user);
 });
