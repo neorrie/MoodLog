@@ -15,7 +15,7 @@ function NewEntryPage() {
     <div>
       <DashboardNavBar></DashboardNavBar>
 
-      <div className="h-[85svh] flex flex-col justify-center items-center">
+      <div className="flex flex-col justify-center items-center mb-4">
         <form action="" className="bg-zinc-800 text-zinc-200 p-4 rounded-2xl">
           <Link to={"/dashboard"}>
             <svg

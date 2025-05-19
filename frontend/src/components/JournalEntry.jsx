@@ -28,6 +28,7 @@ function JournalEntry(props) {
         date={props.date}
         caption={props.caption}
         imgURL={props.imgURL}
+        setEntryOpen={props.setEntryOpen}
       />
     </div>
   );
