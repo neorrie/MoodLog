@@ -6,7 +6,11 @@ import { useForm } from "react-hook-form";
 import axios from "axios";
 
 function RegistrationPage() {
-  const { register, handleSubmit } = useForm();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
   const onSubmit = async (data) => {
     try {
       const response = await axios.post("http://localhost:8888/users", data);
@@ -45,7 +49,18 @@ function RegistrationPage() {
                 type="text"
                 placeholder="Username"
                 className="px-2 py-4 outline-0"
-                {...register("username", { required: true })}
+                {...register("username", {
+                  required: "Username is required",
+                  pattern: {
+                    value: /^[a-zA-Z0-9]+$/,
+                    message:
+                      "Username should only consist of alphanumeric characters",
+                  },
+                  maxLength: {
+                    value: 20,
+                    message: "Username cannot exceed 15 characters",
+                  },
+                })}
               />
             </div>
             <div className="grid grid-cols-[15%_85%] my-3 items-center bg-zinc-800 rounded-full w-76">
@@ -59,7 +74,17 @@ function RegistrationPage() {
                 type="text"
                 placeholder="Name"
                 className="px-2 py-4 outline-0"
-                {...register("name", { required: true })}
+                {...register("name", {
+                  required: "Name is required",
+                  pattern: {
+                    value: /^[a-zA-Z]+$/,
+                    message: "Name should consist of only alphabets",
+                  },
+                  maxLength: {
+                    value: 15,
+                    message: "Username cannot exceed 15 characters",
+                  },
+                })}
               />
             </div>
             <div className="grid grid-cols-[15%_85%] my-3 items-center bg-zinc-800 rounded-full w-76">
@@ -73,7 +98,13 @@ function RegistrationPage() {
                 type="email"
                 placeholder="Email"
                 className="px-2 py-4 outline-0"
-                {...register("email", { required: true })}
+                {...register("email", {
+                  required: "Email Address is required",
+                  pattern: {
+                    value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                    message: "Enter a valid email address",
+                  },
+                })}
               />
             </div>
             <div className="grid grid-cols-[15%_85%] my-3 items-center bg-zinc-800 rounded-full w-76">
@@ -87,7 +118,9 @@ function RegistrationPage() {
                 type="password"
                 placeholder="Password"
                 className="px-2 py-4 outline-0"
-                {...register("password", { required: true })}
+                {...register("password", {
+                  required: "Enter a valid password",
+                })}
               />
             </div>
 
