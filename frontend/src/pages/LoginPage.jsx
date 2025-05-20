@@ -2,8 +2,19 @@ import Lottie from "lottie-react";
 import zenAnimation from "../assets/lotties/zen.json";
 import NavBar from "../components/NavBar.jsx";
 import { Link } from "react-router-dom";
+import { useForm } from "react-hook-form";
 
 function LoginPage() {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+  const onSubmit = async (data) => {
+    console.log(data);
+  };
+
   return (
     <>
       <NavBar></NavBar>
@@ -17,7 +28,10 @@ function LoginPage() {
             Welcome to MoodLog
           </p>
 
-          <form action="" className="flex flex-col items-center">
+          <form
+            onSubmit={handleSubmit(onSubmit)}
+            className="flex flex-col items-center"
+          >
             <div className="grid grid-cols-[15%_85%] my-3 items-center bg-zinc-800 rounded-full w-76">
               <box-icon
                 type="solid"
@@ -29,8 +43,13 @@ function LoginPage() {
                 type="text"
                 placeholder="Username"
                 className="px-2 py-4 outline-0"
+                {...register("username", {
+                  required: "Please enter your username",
+                })}
               />
             </div>
+            <p className="text-red-400 text-sm">{errors.username?.message}</p>
+
             <div className="grid grid-cols-[15%_85%] my-3 items-center bg-zinc-800 rounded-full w-76">
               <box-icon
                 type="solid"
@@ -42,17 +61,20 @@ function LoginPage() {
                 type="password"
                 placeholder="Password"
                 className="px-2 py-4 outline-0"
+                {...register("password", {
+                  required: "Please enter your password",
+                })}
               />
             </div>
-            <Link to={"/dashboard"}>
-              <button
-                type="submit"
-                className="my-2 bg-indigo-500 hover:bg-indigo-600 w-76 py-4 rounded-full font-semibold
+            <p className="text-red-400 text-sm">{errors.password?.message}</p>
+
+            <button
+              type="submit"
+              className="my-2 bg-indigo-500 hover:bg-indigo-600 w-76 py-4 rounded-full font-semibold
               transition ease-in-out duration-250 cursor-pointer"
-              >
-                Login
-              </button>
-            </Link>
+            >
+              Login
+            </button>
           </form>
 
           <p className="text-center text-sm">
