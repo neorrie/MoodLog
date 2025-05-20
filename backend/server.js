@@ -1,10 +1,10 @@
 import express from "express";
 import { connectDB } from "./config/db.js";
+import cors from "cors";
 
 const app = express();
 app.use(express.json());
-
-const users = [];
+app.use(cors());
 
 app.listen(8888, () => {
   connectDB();
