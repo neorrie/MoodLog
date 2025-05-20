@@ -3,8 +3,20 @@ import zenAnimation from "../assets/lotties/zen.json";
 import NavBar from "../components/NavBar.jsx";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import axios from "axios";
 
 function RegistrationPage() {
+  const { register, handleSubmit } = useForm();
+  const onSubmit = async (data) => {
+    try {
+      const response = await axios.post("http://localhost:8888/users", data);
+      console.log("✅ Success:", response.data);
+      // navigate("/login");
+    } catch (error) {
+      console.error("❌ Error submitting signup:", error);
+    }
+  };
+
   return (
     <>
       <NavBar></NavBar>
@@ -18,7 +30,10 @@ function RegistrationPage() {
             Get started for free
           </p>
 
-          <form action="" className="flex flex-col items-center">
+          <form
+            onSubmit={handleSubmit(onSubmit)}
+            className="flex flex-col items-center"
+          >
             <div className="grid grid-cols-[15%_85%] my-3 items-center bg-zinc-800 rounded-full w-76">
               <box-icon
                 type="solid"
@@ -30,6 +45,7 @@ function RegistrationPage() {
                 type="text"
                 placeholder="Username"
                 className="px-2 py-4 outline-0"
+                {...register("username", { required: true })}
               />
             </div>
             <div className="grid grid-cols-[15%_85%] my-3 items-center bg-zinc-800 rounded-full w-76">
@@ -43,6 +59,7 @@ function RegistrationPage() {
                 type="text"
                 placeholder="Name"
                 className="px-2 py-4 outline-0"
+                {...register("name", { required: true })}
               />
             </div>
             <div className="grid grid-cols-[15%_85%] my-3 items-center bg-zinc-800 rounded-full w-76">
@@ -56,6 +73,7 @@ function RegistrationPage() {
                 type="email"
                 placeholder="Email"
                 className="px-2 py-4 outline-0"
+                {...register("email", { required: true })}
               />
             </div>
             <div className="grid grid-cols-[15%_85%] my-3 items-center bg-zinc-800 rounded-full w-76">
@@ -69,6 +87,7 @@ function RegistrationPage() {
                 type="password"
                 placeholder="Password"
                 className="px-2 py-4 outline-0"
+                {...register("password", { required: true })}
               />
             </div>
 
