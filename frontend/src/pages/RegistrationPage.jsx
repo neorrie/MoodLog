@@ -63,6 +63,7 @@ function RegistrationPage() {
                 })}
               />
             </div>
+            <p className="text-red-400 text-sm">{errors.username?.message}</p>
             <div className="grid grid-cols-[15%_85%] my-3 items-center bg-zinc-800 rounded-full w-76">
               <box-icon
                 type="solid"
@@ -87,6 +88,7 @@ function RegistrationPage() {
                 })}
               />
             </div>
+            <p className="text-red-400 text-sm">{errors.name?.message}</p>
             <div className="grid grid-cols-[15%_85%] my-3 items-center bg-zinc-800 rounded-full w-76">
               <box-icon
                 type="solid"
@@ -107,6 +109,7 @@ function RegistrationPage() {
                 })}
               />
             </div>
+            <p className="text-red-400 text-sm">{errors.email?.message}</p>
             <div className="grid grid-cols-[15%_85%] my-3 items-center bg-zinc-800 rounded-full w-76">
               <box-icon
                 type="solid"
@@ -123,6 +126,7 @@ function RegistrationPage() {
                 })}
               />
             </div>
+            <p className="text-red-400 text-sm">{errors.password?.message}</p>
 
             <button
               type="submit"
