@@ -18,7 +18,7 @@ function LoginPage() {
         "http://localhost:8888/users/login",
         data
       );
-      console.log("✅ Data passed to backend");
+      console.log("✅ Data passed to backend", data);
     } catch (error) {
       console.error("❌ Error submitting signup:", error);
     }
