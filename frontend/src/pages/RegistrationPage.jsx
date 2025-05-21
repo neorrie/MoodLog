@@ -1,11 +1,12 @@
 import Lottie from "lottie-react";
 import zenAnimation from "../assets/lotties/zen.json";
 import NavBar from "../components/NavBar.jsx";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 
 function RegistrationPage() {
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -15,7 +16,7 @@ function RegistrationPage() {
     try {
       const response = await axios.post("http://localhost:8888/users", data);
       console.log("✅ Success:", response.data);
-      // navigate("/login");
+      navigate("/login");
     } catch (error) {
       console.error("❌ Error submitting signup:", error);
     }

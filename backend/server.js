@@ -2,6 +2,7 @@ import express from "express";
 import { connectDB } from "./config/db.js";
 import cors from "cors";
 import bcrypt from "bcrypt";
+import User from "./models/Users.js";
 
 const app = express();
 app.use(express.json());
@@ -12,9 +13,15 @@ app.listen(8888, () => {
 });
 
 const users = [{ username: "test", password: "1234" }];
-//test route
-app.get("/users", (req, res) => {
-  res.json(users);
+//test route: return all users
+app.get("/users", async (req, res) => {
+  // res.send(users);
+  try {
+    const allUsers = await User.find({});
+    res.send(allUsers);
+  } catch {
+    res.status(500).send();
+  }
 });
 
 //user registration
@@ -23,8 +30,14 @@ app.post("/users", async (req, res) => {
   // console.log(user);
   try {
     const hashedPassword = await bcrypt.hash(req.body.password, 10);
-    console.log(hashedPassword);
-    // then save user details here using mongoose
+    const newUser = await User.create({
+      name: req.body.name,
+      username: req.body.username,
+      email: req.body.email,
+      password: hashedPassword,
+    });
+    console.log(newUser);
+    res.status(201).send();
   } catch {
     res.status(500).send();
   }

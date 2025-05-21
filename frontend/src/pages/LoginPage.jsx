@@ -12,7 +12,15 @@ function LoginPage() {
   } = useForm();
 
   const onSubmit = async (data) => {
-    console.log(data);
+    try {
+      const response = await axios.post(
+        "http://localhost:8888/users/login",
+        data
+      );
+      console.log(`✅ Data passed to backend: ${data}`);
+    } catch (error) {
+      console.error("❌ Error submitting signup:", error);
+    }
   };
 
   return (
