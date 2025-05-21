@@ -3,6 +3,7 @@ import zenAnimation from "../assets/lotties/zen.json";
 import NavBar from "../components/NavBar.jsx";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import axios from "axios";
 
 function LoginPage() {
   const {

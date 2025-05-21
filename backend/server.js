@@ -12,12 +12,10 @@ app.listen(8888, () => {
   connectDB();
 });
 
-const users = [{ username: "test", password: "1234" }];
 //test route: return all users
-app.get("/users", async (req, res) => {
-  // res.send(users);
+app.get("/", async (req, res) => {
   try {
-    const allUsers = await User.find({});
+    const allUsers = await User.find({ username: "gappaneo" }).exec();
     res.send(allUsers);
   } catch {
     res.status(500).send();
@@ -26,9 +24,12 @@ app.get("/users", async (req, res) => {
 
 //user registration
 app.post("/users", async (req, res) => {
-  // const user = req.body;
-  // console.log(user);
   try {
+    //incomplete - frontend should refresh and return some kind of popup notification upon failure
+    const existingUser = await User.findOne({ username: req.body.username });
+    if (existingUser) {
+      return res.status(409).json({ message: "Username already taken" });
+    }
     const hashedPassword = await bcrypt.hash(req.body.password, 10);
     const newUser = await User.create({
       name: req.body.name,
@@ -37,9 +38,9 @@ app.post("/users", async (req, res) => {
       password: hashedPassword,
     });
     console.log(newUser);
-    res.status(201).send();
+    res.status(201).json({ message: "User successfully created!" });
   } catch {
-    res.status(500).send();
+    res.status(500).json({ message: "User creation failed!" });
   }
 });
 
