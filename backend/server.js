@@ -46,14 +46,19 @@ app.post("/users", async (req, res) => {
 
 //user login
 app.post("/users/login", async (req, res) => {
-  //probably need to write mongoose logic to find a user here based on the input of the user in the login form
-  // const user = users.find(...)
-  // if (user == null) {
-  //   return res.status(400).send("Authentication failed");
-  // }
-  // try {
-  //   bcrypt.compare(req.body.password, user.password);
-  // } catch {
-  //   res.status(500).send();
-  // }
+  const user = await User.find({ username: req.body.username }).exec();
+  if (user == null) {
+    return res.status(400).send("Authentication failed");
+  }
+  try {
+    if (await bcrypt.compare(req.body.password, user[0].password)) {
+      console.log("Login successful");
+      res.send("Well done man login done");
+    } else {
+      console.log("You are unauthorized");
+      res.send("you fked up the login");
+    }
+  } catch {
+    res.status(500).send();
+  }
 });
