@@ -13,7 +13,7 @@ app.listen(8888, () => {
 });
 
 //test route: return all users
-app.get("/", async (req, res) => {
+app.get("/users", async (req, res) => {
   try {
     const allUsers = await User.find({ username: "gappaneo" }).exec();
     res.send(allUsers);

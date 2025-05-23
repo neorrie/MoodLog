@@ -1,6 +1,7 @@
 import NavBar from "../components/NavBar";
 import landingImgPlaceholder from "../assets/images/landingImg.png";
 import { Link } from "react-router-dom";
+import { motion } from "motion/react";
 
 function LandingPage() {
   return (
