@@ -3,6 +3,7 @@ import { connectDB } from "./config/db.js";
 import cors from "cors";
 import bcrypt from "bcrypt";
 import User from "./models/Users.js";
+import jwt from "jwt";
 
 const app = express();
 app.use(express.json());
@@ -47,7 +48,7 @@ app.post("/users", async (req, res) => {
 //user login
 app.post("/users/login", async (req, res) => {
   const user = await User.find({ username: req.body.username }).exec();
-  if (user == null) {
+  if (user.length === 0) {
     return res.status(400).send("Authentication failed");
   }
   try {
