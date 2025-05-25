@@ -1,11 +1,12 @@
 import Lottie from "lottie-react";
 import zenAnimation from "../assets/lotties/zen.json";
 import NavBar from "../components/NavBar.jsx";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 
 function LoginPage() {
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -18,9 +19,12 @@ function LoginPage() {
         "http://localhost:8888/users/login",
         data
       );
-      console.log("✅ Data passed to backend", data);
+      const accessToken = response.data.accessToken;
+      console.log("✅ Logged in. Token:", accessToken);
+      localStorage.setItem("accessToken", accessToken);
+      navigate("/dashboard");
     } catch (error) {
-      console.error("❌ Error submitting signup:", error);
+      console.error("❌ Error logging in:", error);
     }
   };
 

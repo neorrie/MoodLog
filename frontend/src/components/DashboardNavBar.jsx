@@ -1,9 +1,15 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import profilePicPlaceholder from "../assets/images/profilePic.png";
 
 function DashboardNavBar() {
+  const navigate = useNavigate();
   const [menuOpen, setMenuOpen] = useState(false);
+  const onLogout = () => {
+    localStorage.removeItem("accessToken"); // clear token
+    setMenuOpen(false); // close menu
+    navigate("/login"); // redirect to login page
+  };
 
   return (
     <div className="p-6 text-zinc-200">
@@ -22,11 +28,12 @@ function DashboardNavBar() {
       }`}
       >
         <ul className="divide-y divide-zinc-800">
-          <li className="p-2 hover:text-zinc-400">My Profile</li>
-          <li className="p-2 hover:text-zinc-400">
-            <Link to={"/login"} onClick={() => setMenuOpen(false)}>
-              Logout
-            </Link>
+          <li className="p-2 hover:text-zinc-400 cursor-pointer">My Profile</li>
+          <li
+            className="p-2 hover:text-zinc-400 cursor-pointer"
+            onClick={onLogout}
+          >
+            Logout
           </li>
         </ul>
       </div>

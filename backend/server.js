@@ -26,16 +26,6 @@ const testPosts = [
   },
 ];
 
-//test route: return all users
-app.get("/users", async (req, res) => {
-  try {
-    const allUsers = await User.find({ username: "gappaneo" }).exec();
-    res.send(allUsers);
-  } catch {
-    res.status(500).send();
-  }
-});
-
 //user registration
 app.post("/users", async (req, res) => {
   try {
@@ -63,21 +53,26 @@ app.post("/users/login", async (req, res) => {
   const user = await User.findOne({ username: req.body.username })
     .lean()
     .exec();
-  if (user.length === 0) {
+  if (!user) {
     return res.status(400).send("Authentication failed");
   }
   try {
     if (await bcrypt.compare(req.body.password, user.password)) {
-      console.log(user);
-      const accessToken = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET);
+      const payload = { username: user.username };
+      const accessToken = jwt.sign(payload, process.env.ACCESS_TOKEN_SECRET);
       res.json({ accessToken: accessToken });
     } else {
-      console.log("You are unauthorized");
-      res.send("you fked up the login");
+      return res
+        .status(401)
+        .json({ message: "Authentication failed: incorrect password" });
     }
   } catch {
     res.status(500).send();
   }
+});
+
+app.get("/posts", authenticateToken, (req, res) => {
+  res.json(testPosts.filter((post) => post.username == req.user.username));
 });
 
 function authenticateToken(req, res, next) {
