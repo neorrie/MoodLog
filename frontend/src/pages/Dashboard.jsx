@@ -85,7 +85,7 @@ function Dashboard() {
               value={searchEntry}
               onChange={(event) => {
                 setSearchEntry(event.target.value);
-                // setEntryOpen(null);
+                setEntryOpen(null);
               }}
             />
           </div>
