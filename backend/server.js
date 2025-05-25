@@ -3,15 +3,28 @@ import { connectDB } from "./config/db.js";
 import cors from "cors";
 import bcrypt from "bcrypt";
 import User from "./models/Users.js";
-import jwt from "jwt";
+import jwt from "jsonwebtoken";
+import dotenv from "dotenv";
 
+dotenv.config();
 const app = express();
 app.use(express.json());
 app.use(cors());
 
-app.listen(8888, () => {
-  connectDB();
-});
+const testPosts = [
+  {
+    username: "gappaneo",
+    title: "post 1",
+  },
+  {
+    username: "dadoodoo",
+    title: "post 2",
+  },
+  {
+    username: "mrmotorboat",
+    title: "post 3",
+  },
+];
 
 //test route: return all users
 app.get("/users", async (req, res) => {
@@ -47,14 +60,17 @@ app.post("/users", async (req, res) => {
 
 //user login
 app.post("/users/login", async (req, res) => {
-  const user = await User.find({ username: req.body.username }).exec();
+  const user = await User.findOne({ username: req.body.username })
+    .lean()
+    .exec();
   if (user.length === 0) {
     return res.status(400).send("Authentication failed");
   }
   try {
-    if (await bcrypt.compare(req.body.password, user[0].password)) {
-      console.log("Login successful");
-      res.send("Well done man login done");
+    if (await bcrypt.compare(req.body.password, user.password)) {
+      console.log(user);
+      const accessToken = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET);
+      res.json({ accessToken: accessToken });
     } else {
       console.log("You are unauthorized");
       res.send("you fked up the login");
@@ -62,4 +78,19 @@ app.post("/users/login", async (req, res) => {
   } catch {
     res.status(500).send();
   }
+});
+
+function authenticateToken(req, res, next) {
+  const authHeader = req.headers["authorization"];
+  const token = authHeader && authHeader.split(" ")[1];
+  if (token == null) return res.status(401).send("You do not have access");
+  jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, user) => {
+    if (err) return res.status(403).send("Invalid token");
+    req.user = user;
+    next();
+  });
+}
+
+app.listen(8888, () => {
+  connectDB();
 });
