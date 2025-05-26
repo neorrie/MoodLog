@@ -16,6 +16,7 @@ function Dashboard() {
         headers: { Authorization: `Bearer ${accessToken}` },
       });
       journalData = response.data;
+      console.log(journalData);
     } catch (error) {
       console.error("Error fetching posts:", error);
     }
@@ -90,7 +91,7 @@ function Dashboard() {
             />
           </div>
           {/* journal entries should go here */}
-          {journalData.map((journal, index) => {
+          {/* {journalData.map((journal, index) => {
             return (
               journal.title.toLowerCase().includes(searchEntry) && (
                 <JournalEntry
@@ -105,7 +106,7 @@ function Dashboard() {
                 />
               )
             );
-          })}
+          })} */}
         </div>
       </div>
     </div>
