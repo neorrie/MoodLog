@@ -3,6 +3,7 @@ import { connectDB } from "./config/db.js";
 import cors from "cors";
 import bcrypt from "bcrypt";
 import User from "./models/Users.js";
+import Journal from "./models/Journal.js";
 import jwt from "jsonwebtoken";
 import dotenv from "dotenv";
 
@@ -10,20 +11,7 @@ dotenv.config();
 const app = express();
 app.use(express.json());
 app.use(cors());
-const testPosts = [
-  {
-    username: "gappaneo",
-    title: "post 1",
-  },
-  {
-    username: "dadoodoo",
-    title: "post 2",
-  },
-  {
-    username: "mrmotorboat",
-    title: "post 3",
-  },
-];
+
 //user registration
 app.post("/users", async (req, res) => {
   try {
@@ -42,7 +30,7 @@ app.post("/users", async (req, res) => {
     console.log(newUser);
     res.status(201).json({ message: "User successfully created!" });
   } catch {
-    res.status(500).json({ message: "User creation failed!" });
+    res.status(500).json({ message: "Server error" });
   }
 });
 
@@ -65,20 +53,23 @@ app.post("/users/login", async (req, res) => {
         .json({ message: "Authentication failed: incorrect password" });
     }
   } catch {
-    res.status(500).send();
+    res.status(500).json({ message: "Server error" });
   }
 });
 
-app.get("/journals", authenticateToken, (req, res) => {
-  const postList = [];
-  res.json(testPosts.filter((post) => post.username == req.user.username));
+// to be rendered on dashboard
+app.get("/journals", authenticateToken, async (req, res) => {
+  try {
+    const journalList = await Journal.find({ username: req.user.username });
+    res.json(journalList);
+  } catch {
+    res.status(500).json({ message: "Server error" });
+  }
 });
 
-app.post("/journals", authenticateToken, (req, res) => {
-  const newPost = [];
-});
+// create new journal
+app.post("/journals", async (req, res) => {});
 
-// middleware
 function authenticateToken(req, res, next) {
   const authHeader = req.headers["authorization"];
   const token = authHeader && authHeader.split(" ")[1];
