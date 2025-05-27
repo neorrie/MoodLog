@@ -69,8 +69,13 @@ app.post("/users/login", async (req, res) => {
   }
 });
 
-app.get("/posts", authenticateToken, (req, res) => {
+app.get("/journals", authenticateToken, (req, res) => {
+  const postList = [];
   res.json(testPosts.filter((post) => post.username == req.user.username));
+});
+
+app.post("/journals", authenticateToken, (req, res) => {
+  const newPost = [];
 });
 
 // middleware

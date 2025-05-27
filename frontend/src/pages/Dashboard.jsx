@@ -12,7 +12,7 @@ function Dashboard() {
   async function fetchPosts() {
     const accessToken = localStorage.getItem("accessToken");
     try {
-      const response = await axios.get("http://localhost:8888/posts", {
+      const response = await axios.get("http://localhost:8888/journals", {
         headers: { Authorization: `Bearer ${accessToken}` },
       });
       journalData = response.data;
