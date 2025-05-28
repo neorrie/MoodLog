@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import "boxicons";
+import { motion } from "motion/react";
 
 function NavBar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -9,25 +10,45 @@ function NavBar() {
     <div className="p-6">
       {/* desktop view */}
       <div className="flex justify-between items-center">
-        <div className="text-2xl text-zinc-200 cursor-pointer flex">
+        <motion.div
+          className="text-2xl text-zinc-200 cursor-pointer flex"
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{
+            type: "spring",
+            stiffness: 100,
+            damping: 25,
+            delay: 0.3,
+            duration: 1.2,
+          }}
+        >
           <Link to={"/"}>
             M<box-icon name="book-reader" color="white"></box-icon>dLog
           </Link>
-        </div>
+        </motion.div>
         <ul className="hidden md:flex text-zinc-200 gap-x-8 mx-4">
-          <li>
-            <Link to={"/"}>Home</Link>
-          </li>
-          <li>
-            <Link to={"/about"}>About</Link>
-          </li>
-          <li>
-            <Link to={"/gallery"}>Gallery</Link>
-          </li>
-          <li>
-            <Link to={"/login"}>Sign in</Link>
-          </li>
+          {["Home", "About", "Gallery", "Sign in"].map((item, index) => (
+            <motion.li
+              key={index}
+              className="font-medium relative group"
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{
+                type: "spring",
+                stiffness: 100,
+                damping: 25,
+                delay: 0.5 + index * 0.2,
+                duration: 1.2,
+              }}
+            >
+              <Link to={`/${item.toLowerCase()}`}>
+                {item}
+                <span className="absolute left-0 bottom-0 h-[2px] w-0 bg-zinc-200 transition-all duration-300 ease-in-out group-hover:w-full"></span>
+              </Link>
+            </motion.li>
+          ))}
         </ul>
+
         <button
           onClick={() => setMenuOpen(!menuOpen)}
           className="md:hidden flex items-center px-4 py-2"
@@ -48,26 +69,16 @@ function NavBar() {
           }`}
       >
         <ul className="divide-y divide-zinc-800 text-zinc-200">
-          <li className="p-2 hover:text-zinc-400">
-            <Link to={"/"} onClick={() => setMenuOpen(false)}>
-              Home
-            </Link>
-          </li>
-          <li className="p-2 hover:text-zinc-400">
-            <Link to={"/about"} onClick={() => setMenuOpen(false)}>
-              About
-            </Link>
-          </li>
-          <li className="p-2 hover:text-zinc-400">
-            <Link to={"/gallery"} onClick={() => setMenuOpen(false)}>
-              Gallery
-            </Link>
-          </li>
-          <li className="p-2 hover:text-zinc-400">
-            <Link to={"/login"} onClick={() => setMenuOpen(false)}>
-              Log in
-            </Link>
-          </li>
+          {["Home", "About", "Gallery", "Sign in"].map((item, index) => (
+            <li className="p-2 hover:text-zinc-400 font-medium" key={index}>
+              <Link
+                to={`/${item.toLowerCase()}`}
+                onClick={() => setMenuOpen(false)}
+              >
+                {item}
+              </Link>
+            </li>
+          ))}
         </ul>
       </div>
     </div>
