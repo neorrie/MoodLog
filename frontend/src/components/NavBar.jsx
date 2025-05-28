@@ -22,7 +22,7 @@ function NavBar() {
             duration: 1.2,
           }}
         >
-          <Link to={"/"}>
+          <Link to={"/home"}>
             M<box-icon name="book-reader" color="white"></box-icon>dLog
           </Link>
         </motion.div>
