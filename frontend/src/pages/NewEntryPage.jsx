@@ -1,14 +1,19 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 
 function NewEntryPage() {
-  const { register, handleSubmit } = useForm();
+  const navigate = useNavigate();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
 
   const onSubmit = async (data) => {
     try {
-      const response = await axios.post("http://localhost:8888/journals", data);
-      console.log("✅ Data sent to backend", console.log(response.data));
+      await axios.post("http://localhost:8888/journals", data);
+      navigate("/dashboard");
     } catch (error) {
       console.error("❌ Error:", error);
     }
@@ -42,8 +47,11 @@ function NewEntryPage() {
                 id="title"
                 name="title"
                 className="bg-zinc-700 w-full rounded-sm px-2 py-2 focus:outline-1 outline-zinc-500"
-                {...register("title")}
+                {...register("title", {
+                  required: "Enter a title",
+                })}
               />
+              <p className="text-red-400 text-sm">{errors.title?.message}</p>
             </div>
 
             <div>
@@ -55,8 +63,11 @@ function NewEntryPage() {
                 id="date"
                 name="date"
                 className="bg-zinc-700 w-full rounded-sm px-2 py-2 focus:outline-1 outline-zinc-500"
-                {...register("date")}
+                {...register("date", {
+                  required: "Select a date",
+                })}
               />
+              <p className="text-red-400 text-sm">{errors.date?.message}</p>
             </div>
             <div className="col-span-2">
               <label htmlFor="caption" className="block mb-1">
@@ -68,8 +79,11 @@ function NewEntryPage() {
                 className="bg-zinc-700 w-full rounded-sm px-2 py-2 focus:outline-1 outline-zinc-500
                 resize-none"
                 rows="6"
-                {...register("caption")}
+                {...register("caption", {
+                  required: "Write a caption",
+                })}
               ></textarea>
+              <p className="text-red-400 text-sm">{errors.caption?.message}</p>
             </div>
             <div>
               <label htmlFor="date" className="block mb-1">
@@ -80,8 +94,11 @@ function NewEntryPage() {
                 id="coverImg"
                 name="coverImg"
                 className="bg-zinc-700 w-full rounded-sm px-2 py-2 focus:outline-1 outline-zinc-500"
-                {...register("coverImg")}
+                {...register("coverImg", {
+                  required: "Select a cover image",
+                })}
               />
+              <p className="text-red-400 text-sm">{errors.coverImg?.message}</p>
             </div>
             <button className="bg-indigo-500 col-span-2 py-2 rounded-2xl">
               Create
