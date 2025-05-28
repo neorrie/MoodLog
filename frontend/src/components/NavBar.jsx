@@ -7,7 +7,7 @@ function NavBar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <div className="p-6">
+    <nav className="p-6">
       {/* desktop view */}
       <div className="flex justify-between items-center">
         <motion.div
@@ -81,7 +81,7 @@ function NavBar() {
           ))}
         </ul>
       </div>
-    </div>
+    </nav>
   );
 }
 
