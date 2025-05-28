@@ -4,7 +4,7 @@ const journalSchema = new mongoose.Schema({
   username: String,
   title: String,
   caption: String,
-  imgURL: String,
+  imgFile: String,
   date: Date,
 });
 

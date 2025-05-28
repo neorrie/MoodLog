@@ -68,10 +68,17 @@ app.get("/journals", authenticateToken, async (req, res) => {
 });
 
 // create new journal
-app.post("/journals", async (req, res) => {
+app.post("/journals", authenticateToken, async (req, res) => {
   try {
-    console.log(req.body);
-    res.status(200).json({ message: "New journal entry received" });
+    const newJournal = await Journal.create({
+      username: req.user.username,
+      title: req.body.title,
+      date: req.body.date,
+      caption: req.body.caption,
+      imgFile: req.body.coverImg,
+    });
+    console.log(newJournal);
+    res.status(201).json({ message: "New journal entry created" });
   } catch {
     res.status(500).json({ message: "Server error" });
   }
