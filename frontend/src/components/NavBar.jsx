@@ -31,8 +31,8 @@ function NavBar() {
             <motion.li
               key={index}
               className="font-medium relative group"
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{
                 type: "spring",
                 stiffness: 100,
@@ -49,20 +49,29 @@ function NavBar() {
           ))}
         </ul>
 
-        <button
+        <motion.button
           onClick={() => setMenuOpen(!menuOpen)}
           className="md:hidden flex items-center px-4 py-2"
+          initial={{ opacity: 0, y: -50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{
+            type: "spring",
+            stiffness: 100,
+            damping: 25,
+            delay: 0.3,
+            duration: 1.2,
+          }}
         >
           <box-icon
             name="menu"
             color="grey"
             className="cursor-pointer"
           ></box-icon>
-        </button>
+        </motion.button>
       </div>
 
       {/* mobile hamburger popup */}
-      <div
+      <motion.div
         className={`md:hidden fixed bg-zinc-900 inset-x-4 top-20 z-100 rounded-3xl p-6 ring-1 ring-zinc-800
           transition-all duration-300 ease-in-out ${
             menuOpen ? "opacity-100" : "opacity-0 pointer-events-none"
@@ -80,7 +89,7 @@ function NavBar() {
             </li>
           ))}
         </ul>
-      </div>
+      </motion.div>
     </nav>
   );
 }
