@@ -11,8 +11,12 @@ function NewEntryPage() {
   } = useForm();
 
   const onSubmit = async (data) => {
+    const accessToken = localStorage.getItem("accessToken");
     try {
-      await axios.post("http://localhost:8888/journals", data);
+      await axios.post("http://localhost:8888/journals", data, {
+        headers: { Authorization: `Bearer ${accessToken}` },
+      });
+
       navigate("/dashboard");
     } catch (error) {
       console.error("❌ Error:", error);
@@ -85,22 +89,11 @@ function NewEntryPage() {
               ></textarea>
               <p className="text-red-400 text-sm">{errors.caption?.message}</p>
             </div>
-            <div>
-              <label htmlFor="date" className="block mb-1">
-                File upload
-              </label>
-              <input
-                type="file"
-                id="coverImg"
-                name="coverImg"
-                className="bg-zinc-700 w-full rounded-sm px-2 py-2 focus:outline-1 outline-zinc-500"
-                {...register("coverImg", {
-                  required: "Select a cover image",
-                })}
-              />
-              <p className="text-red-400 text-sm">{errors.coverImg?.message}</p>
-            </div>
-            <button className="bg-indigo-500 col-span-2 py-2 rounded-2xl">
+            <button
+              className="bg-indigo-500 hover:bg-indigo-600 col-span-2 py-2 rounded-2xl cursor-pointer
+              transition ease-in-out duration-250"
+              type="submit"
+            >
               Create
             </button>
           </div>

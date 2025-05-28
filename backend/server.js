@@ -12,6 +12,41 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
+// const getData = async () => {
+//   const tempData = [
+//     {
+//       title: "A Day at the Beach",
+//       caption: "It was sunny and relaxing.",
+//       date: new Date("2025-05-01"),
+//     },
+//     {
+//       title: "Study Marathon",
+//       caption: "Prepared for exams all day.",
+//       date: new Date("2025-05-02"),
+//     },
+//     {
+//       title: "Evening Walk",
+//       caption: "Watched the sunset by the park.",
+//       date: new Date("2025-05-03"),
+//     },
+//   ];
+
+//   try {
+//     for (const entry of tempData) {
+//       await Journal.create({
+//         username: "gappaneo",
+//         title: entry.title,
+//         caption: entry.caption,
+//         date: entry.date,
+//       });
+//       console.log(`Journal entry "${entry.title}" created.`);
+//     }
+//     console.log("All tempData entries have been uploaded.");
+//   } catch (error) {
+//     console.error("Error uploading tempData:", error);
+//   }
+// };
+
 //user registration
 app.post("/users", async (req, res) => {
   try {
@@ -75,7 +110,6 @@ app.post("/journals", authenticateToken, async (req, res) => {
       title: req.body.title,
       date: req.body.date,
       caption: req.body.caption,
-      imgFile: req.body.coverImg,
     });
     console.log(newJournal);
     res.status(201).json({ message: "New journal entry created" });
