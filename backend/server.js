@@ -68,7 +68,14 @@ app.get("/journals", authenticateToken, async (req, res) => {
 });
 
 // create new journal
-app.post("/journals", async (req, res) => {});
+app.post("/journals", async (req, res) => {
+  try {
+    console.log(req.body);
+    res.status(200).json({ message: "New journal entry received" });
+  } catch {
+    res.status(500).json({ message: "Server error" });
+  }
+});
 
 function authenticateToken(req, res, next) {
   const authHeader = req.headers["authorization"];

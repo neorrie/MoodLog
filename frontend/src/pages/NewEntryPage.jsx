@@ -1,19 +1,14 @@
-import imgPlaceholder from "../assets/images/cloud-computing.png";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
-// import axios from "axios";
+import axios from "axios";
 
 function NewEntryPage() {
   const { register, handleSubmit } = useForm();
 
   const onSubmit = async (data) => {
     try {
-      // const accessToken = localStorage.getItem("accessToken");
-      // const response = await axios.post(
-      //   "http://localhost:8888/users/login",
-      //   data
-      // );
-      console.log(data);
+      const response = await axios.post("http://localhost:8888/journals", data);
+      console.log("✅ Data sent to backend", console.log(response.data));
     } catch (error) {
       console.error("❌ Error:", error);
     }
