@@ -20,7 +20,7 @@ function LoginPage() {
         data
       );
       const accessToken = response.data.accessToken;
-      console.log("✅ Logged in. Token:", accessToken);
+      console.log("✅ Logged in");
       localStorage.setItem("accessToken", accessToken);
       navigate("/dashboard");
     } catch (error) {
