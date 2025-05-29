@@ -1,45 +1,70 @@
 import { motion, AnimatePresence } from "motion/react";
 
 function EntryPopup(props) {
-  return props.trigger ? (
+  return (
     <AnimatePresence>
-      <motion.div
-        className="fixed inset-0 bg-zinc-900/60 text-zinc-200 z-10 flex justify-center items-center p-10"
-        onClick={() => props.setEntryOpen(null)}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        transition={{
-          duration: 0.3,
-        }}
-      >
-        <div
-          className="flex flex-col items-center  bg-zinc-900 p-6 rounded-2xl ring-1 ring-zinc-800
-      max-h-[85dvh] overflow-scroll"
+      {props.trigger && (
+        <motion.div
+          className="fixed inset-0 bg-zinc-900/60 text-zinc-200 z-10 flex justify-center items-center p-10"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{
+            duration: 0.2,
+          }}
         >
-          <img src={props.imgURL} />
-          <div className="my-6">
-            <p className="font-bold text-2xl">{props.title}</p>
-            <p className="italic text-sm my-4 text-zinc-400">{props.date}</p>
-            <p className="">{props.caption}</p>
+          <div
+            className="flex flex-col bg-zinc-900 p-6 rounded-2xl ring-1 ring-zinc-800
+      max-h-[85dvh]"
+          >
+            <div className="flex justify-end">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width={24}
+                height={24}
+                fill={"#ffffff"}
+                viewBox="0 0 24 24"
+                className="cursor-pointer"
+                onClick={() => props.setEntryOpen(null)}
+              >
+                {/* Boxicons v3.0 https://boxicons.com | License  https://docs.boxicons.com/free */}
+                <path d="m7.76 14.83-2.83 2.83 1.41 1.41 2.83-2.83 2.12-2.12.71-.71.71.71 1.41 1.42 3.54 3.53 1.41-1.41-3.53-3.54-1.42-1.41-.71-.71 5.66-5.66-1.41-1.41L12 10.59 6.34 4.93 4.93 6.34 10.59 12l-.71.71z"></path>
+              </svg>
+            </div>
+            <div className="my-6">
+              <p className="font-bold text-2xl">{props.title}</p>
+              <p className="italic text-sm my-4 text-zinc-400">{props.date}</p>
+              <p className="">{props.caption}</p>
+            </div>
+            <div className="w-full flex justify-end gap-3">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width={24}
+                height={24}
+                fill={"#ffffff"}
+                viewBox="0 0 24 24"
+                className="cursor-pointer"
+              >
+                <path d="M5 21h14c1.1 0 2-.9 2-2v-7h-2v7H5V5h7V3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2"></path>
+                <path d="M7 13v3c0 .55.45 1 1 1h3c.27 0 .52-.11.71-.29l9-9a.996.996 0 0 0 0-1.41l-3-3a.996.996 0 0 0-1.41 0l-9.01 8.99A1 1 0 0 0 7 13m10-7.59L18.59 7 17.5 8.09 15.91 6.5zm-8 8 5.5-5.5 1.59 1.59-5.5 5.5H9z"></path>
+              </svg>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width={24}
+                height={24}
+                fill={"#ffffff"}
+                viewBox="0 0 24 24"
+                className="cursor-pointer"
+              >
+                {/* Boxicons v3.0 https://boxicons.com | License  https://docs.boxicons.com/free */}
+                <path d="M17 6V4c0-1.1-.9-2-2-2H9c-1.1 0-2 .9-2 2v2H2v2h2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8h2V6zM9 4h6v2H9zM6 20V8h12v12z"></path>
+                <path d="M9 10h2v8H9zM13 10h2v8h-2z"></path>
+              </svg>
+            </div>
           </div>
-          <button
-            className="my-2 bg-indigo-500 hover:bg-indigo-600 w-full py-4 rounded-full font-semibold
-              transition ease-in-out duration-250 cursor-pointer"
-          >
-            Edit
-          </button>
-          <button
-            className="my-2 bg-indigo-500 hover:bg-indigo-600 w-full py-4 rounded-full font-semibold
-              transition ease-in-out duration-250 cursor-pointer"
-          >
-            Delete
-          </button>
-        </div>
-      </motion.div>
+        </motion.div>
+      )}
     </AnimatePresence>
-  ) : (
-    ""
   );
 }
 
