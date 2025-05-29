@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import "boxicons";
 import { motion } from "motion/react";
 
 function NavBar() {
@@ -25,11 +24,24 @@ function NavBar() {
             stiffness: 100,
             damping: 25,
             delay: 0.3,
-            duration: 1.2,
+            duration: 0.8,
           }}
         >
           <Link to={"/"}>
-            M<box-icon name="book-reader" color="white"></box-icon>dLog
+            M
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width={24}
+              height={24}
+              fill={"#ffffff"}
+              viewBox="0 0 24 24"
+              className="inline pb-1"
+            >
+              <path d="M12 2A3 3 0 1 0 12 8 3 3 0 1 0 12 2z"></path>
+              <path d="m2,9v9.88c0,.27.11.53.31.72s.46.3.73.28c.04,0,3.93-.11,8.46,1.99v-12.09c-4.02-1.75-8.31-1.79-8.5-1.79-.55,0-1,.45-1,1Z"></path>
+              <path d="m21,8c-.19,0-4.48.03-8.5,1.79v12.09c4.51-2.09,8.43-2,8.47-1.99.27.02.53-.09.73-.28.19-.19.3-.45.3-.72v-9.88c0-.55-.45-1-1-1Z"></path>
+            </svg>
+            dLog
           </Link>
         </motion.div>
         <ul className="hidden md:flex text-zinc-200 gap-x-8 mx-4">
@@ -44,7 +56,7 @@ function NavBar() {
                 stiffness: 100,
                 damping: 25,
                 delay: 0.5 + index * 0.2,
-                duration: 1.2,
+                duration: 0.8,
               }}
             >
               <Link to={item.path}>
@@ -65,7 +77,7 @@ function NavBar() {
             stiffness: 100,
             damping: 25,
             delay: 0.3,
-            duration: 1.2,
+            duration: 0.8,
           }}
         >
           <box-icon

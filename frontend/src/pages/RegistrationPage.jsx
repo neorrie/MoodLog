@@ -36,7 +36,7 @@ function RegistrationPage() {
             stiffness: 100,
             damping: 25,
             delay: 0.7,
-            duration: 1.2,
+            duration: 0.8,
           }}
         >
           <Lottie animationData={zenAnimation} loop={true} />
@@ -52,7 +52,7 @@ function RegistrationPage() {
               stiffness: 100,
               damping: 25,
               delay: 0.3,
-              duration: 1.2,
+              duration: 0.8,
             }}
           >
             Get started for free
@@ -71,15 +71,19 @@ function RegistrationPage() {
                 stiffness: 100,
                 damping: 25,
                 delay: 0.5,
-                duration: 1.2,
+                duration: 0.8,
               }}
             >
-              <box-icon
-                type="solid"
-                name="user"
-                color="grey"
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width={24}
+                height={24}
+                fill={"#a1a1aa"}
+                viewBox="0 0 24 24"
                 className="justify-self-center"
-              ></box-icon>
+              >
+                <path d="M12 2a5 5 0 1 0 0 10 5 5 0 1 0 0-10M4 22h16c.55 0 1-.45 1-1v-1c0-3.86-3.14-7-7-7h-4c-3.86 0-7 3.14-7 7v1c0 .55.45 1 1 1"></path>
+              </svg>
               <input
                 type="text"
                 placeholder="Username"
@@ -108,15 +112,19 @@ function RegistrationPage() {
                 stiffness: 100,
                 damping: 25,
                 delay: 0.6,
-                duration: 1.2,
+                duration: 0.8,
               }}
             >
-              <box-icon
-                type="solid"
-                name="user-circle"
-                color="grey"
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width={24}
+                height={24}
+                fill={"#a1a1aa"}
+                viewBox="0 0 24 24"
                 className="justify-self-center"
-              ></box-icon>
+              >
+                <path d="M12 2C6.49 2 2 6.49 2 12s4.49 10 10 10 10-4.49 10-10S17.51 2 12 2m0 5c1.73 0 3 1.27 3 3s-1.27 3-3 3-3-1.27-3-3 1.27-3 3-3m0 13a7.98 7.98 0 0 1-5.48-2.18C7.33 16.16 9.03 15 11 15h2c1.97 0 3.66 1.16 4.47 2.82A7.94 7.94 0 0 1 12 20"></path>
+              </svg>
               <input
                 type="text"
                 placeholder="Name"
@@ -144,15 +152,20 @@ function RegistrationPage() {
                 stiffness: 100,
                 damping: 25,
                 delay: 0.7,
-                duration: 1.2,
+                duration: 0.8,
               }}
             >
-              <box-icon
-                type="solid"
-                name="envelope"
-                color="grey"
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width={24}
+                height={24}
+                fill={"#a1a1aa"}
+                viewBox="0 0 24 24"
                 className="justify-self-center"
-              ></box-icon>
+              >
+                <path d="M20 4H4c-1.1 0-2 .9-2 2v.25l10 7.5 10-7.5V6c0-1.1-.9-2-2-2"></path>
+                <path d="M12 16c-.21 0-.42-.07-.6-.2L2 8.75V18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8.75l-9.4 7.05c-.18.13-.39.2-.6.2"></path>
+              </svg>
               <input
                 type="email"
                 placeholder="Email"
@@ -176,15 +189,19 @@ function RegistrationPage() {
                 stiffness: 100,
                 damping: 25,
                 delay: 0.8,
-                duration: 1.2,
+                duration: 0.8,
               }}
             >
-              <box-icon
-                type="solid"
-                name="lock"
-                color="grey"
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width={24}
+                height={24}
+                fill={"#a1a1aa"}
+                viewBox="0 0 24 24"
                 className="justify-self-center"
-              ></box-icon>
+              >
+                <path d="M6 22h12c1.1 0 2-.9 2-2v-9c0-1.1-.9-2-2-2h-1V7c0-2.76-2.24-5-5-5S7 4.24 7 7v2H6c-1.1 0-2 .9-2 2v9c0 1.1.9 2 2 2M9 7c0-1.65 1.35-3 3-3s3 1.35 3 3v2H9z"></path>
+              </svg>
               <input
                 type="password"
                 placeholder="Password"
@@ -206,7 +223,7 @@ function RegistrationPage() {
                 stiffness: 100,
                 damping: 25,
                 delay: 0.9,
-                duration: 1.2,
+                duration: 0.8,
               }}
             >
               Register
@@ -222,7 +239,7 @@ function RegistrationPage() {
               stiffness: 100,
               damping: 25,
               delay: 0.9,
-              duration: 1.2,
+              duration: 0.8,
             }}
           >
             Already have an account?{" "}

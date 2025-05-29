@@ -21,7 +21,7 @@ function LandingPage() {
             stiffness: 50,
             damping: 25,
             delay: 0.8,
-            duration: 1.5,
+            duration: 1,
           }}
         />
 
@@ -36,7 +36,7 @@ function LandingPage() {
                 stiffness: 50,
                 damping: 25,
                 delay: 1,
-                duration: 1.5,
+                duration: 1,
               }}
             >
               reflect <span className="text-indigo-500">simply</span>, grow{" "}
@@ -53,7 +53,7 @@ function LandingPage() {
                 stiffness: 50,
                 damping: 25,
                 delay: 1.2,
-                duration: 1.5,
+                duration: 1,
               }}
             >
               A clean, intuitive journaling app designed to help you pause,
@@ -69,7 +69,7 @@ function LandingPage() {
               stiffness: 50,
               damping: 25,
               delay: 1.4,
-              duration: 1.5,
+              duration: 1,
             }}
           >
             <Link to={"/register"}>

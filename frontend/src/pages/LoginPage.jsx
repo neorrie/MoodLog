@@ -42,7 +42,7 @@ function LoginPage() {
             stiffness: 100,
             damping: 25,
             delay: 0.7,
-            duration: 1.2,
+            duration: 0.8,
           }}
         >
           <Lottie animationData={zenAnimation} loop={true} />
@@ -58,7 +58,7 @@ function LoginPage() {
               stiffness: 100,
               damping: 25,
               delay: 0.3,
-              duration: 1.2,
+              duration: 0.8,
             }}
           >
             Welcome to MoodLog
@@ -77,15 +77,19 @@ function LoginPage() {
                 stiffness: 100,
                 damping: 25,
                 delay: 0.5,
-                duration: 1.2,
+                duration: 0.8,
               }}
             >
-              <box-icon
-                type="solid"
-                name="user"
-                color="grey"
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width={24}
+                height={24}
+                fill={"#a1a1aa"}
+                viewBox="0 0 24 24"
                 className="justify-self-center"
-              ></box-icon>
+              >
+                <path d="M12 2a5 5 0 1 0 0 10 5 5 0 1 0 0-10M4 22h16c.55 0 1-.45 1-1v-1c0-3.86-3.14-7-7-7h-4c-3.86 0-7 3.14-7 7v1c0 .55.45 1 1 1"></path>
+              </svg>
               <input
                 type="text"
                 placeholder="Username"
@@ -106,15 +110,19 @@ function LoginPage() {
                 stiffness: 100,
                 damping: 25,
                 delay: 0.7,
-                duration: 1.2,
+                duration: 0.8,
               }}
             >
-              <box-icon
-                type="solid"
-                name="lock"
-                color="grey"
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width={24}
+                height={24}
+                fill={"#a1a1aa"}
+                viewBox="0 0 24 24"
                 className="justify-self-center"
-              ></box-icon>
+              >
+                <path d="M6 22h12c1.1 0 2-.9 2-2v-9c0-1.1-.9-2-2-2h-1V7c0-2.76-2.24-5-5-5S7 4.24 7 7v2H6c-1.1 0-2 .9-2 2v9c0 1.1.9 2 2 2M9 7c0-1.65 1.35-3 3-3s3 1.35 3 3v2H9z"></path>
+              </svg>
               <input
                 type="password"
                 placeholder="Password"
@@ -136,7 +144,7 @@ function LoginPage() {
                 stiffness: 100,
                 damping: 25,
                 delay: 0.9,
-                duration: 1.2,
+                duration: 0.8,
               }}
             >
               Login
@@ -152,7 +160,7 @@ function LoginPage() {
               stiffness: 100,
               damping: 25,
               delay: 1,
-              duration: 1.2,
+              duration: 0.8,
             }}
           >
             Don't have an account?{" "}
