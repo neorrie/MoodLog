@@ -13,7 +13,7 @@ import NewEntryPage from "./pages/NewEntryPage.jsx";
 import Experiments from "./pages/Experiments.jsx";
 
 const router = createBrowserRouter([
-  { path: "/home", element: <App /> },
+  { path: "/", element: <App /> },
   { path: "*", element: <NotFoundPage /> },
   { path: "/about", element: <AboutPage /> },
   { path: "/gallery", element: <GalleryPage /> },

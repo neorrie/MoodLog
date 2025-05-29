@@ -16,7 +16,7 @@ function NotFoundPage() {
             </p>
           </div>
           <div className="hidden md:flex">
-            <Link to={"/home"}>
+            <Link to={"/"}>
               <button
                 className="text-zinc-300 bg-zinc-800 hover:bg-zinc-700 px-6 py-4 rounded-full
           transition ease-in-out duration-300 cursor-pointer"
@@ -31,7 +31,7 @@ function NotFoundPage() {
           <img src={errorImg} className="max-w-60 mb-6 md:max-w-80" />
         </div>
         <div className="md:hidden">
-          <Link to={"/home"}>
+          <Link to={"/"}>
             <button
               className="text-zinc-300 bg-zinc-800 hover:bg-zinc-700 px-6 py-4 mb-4 rounded-full
           transition ease-in-out duration-300 cursor-pointer"

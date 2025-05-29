@@ -5,6 +5,12 @@ import { motion } from "motion/react";
 
 function NavBar() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const navItems = [
+    { label: "Home", path: "/" },
+    { label: "About", path: "/about" },
+    { label: "Gallery", path: "/gallery" },
+    { label: "Log in", path: "/login" },
+  ];
 
   return (
     <nav className="p-6">
@@ -22,12 +28,12 @@ function NavBar() {
             duration: 1.2,
           }}
         >
-          <Link to={"/home"}>
+          <Link to={"/"}>
             M<box-icon name="book-reader" color="white"></box-icon>dLog
           </Link>
         </motion.div>
         <ul className="hidden md:flex text-zinc-200 gap-x-8 mx-4">
-          {["Home", "About", "Gallery", "Sign in"].map((item, index) => (
+          {navItems.map((item, index) => (
             <motion.li
               key={index}
               className="font-medium relative group"
@@ -41,8 +47,8 @@ function NavBar() {
                 duration: 1.2,
               }}
             >
-              <Link to={`/${item.toLowerCase()}`}>
-                {item}
+              <Link to={item.path}>
+                {item.label}
                 <span className="absolute left-0 bottom-0 h-[2px] w-0 bg-zinc-200 transition-all duration-300 ease-in-out group-hover:w-full"></span>
               </Link>
             </motion.li>
@@ -78,13 +84,10 @@ function NavBar() {
           }`}
       >
         <ul className="divide-y divide-zinc-800 text-zinc-200">
-          {["Home", "About", "Gallery", "Sign in"].map((item, index) => (
+          {navItems.map((item, index) => (
             <li className="p-2 hover:text-zinc-400 font-medium" key={index}>
-              <Link
-                to={`/${item.toLowerCase()}`}
-                onClick={() => setMenuOpen(false)}
-              >
-                {item}
+              <Link to={item.path} onClick={() => setMenuOpen(false)}>
+                {item.label}
               </Link>
             </li>
           ))}
