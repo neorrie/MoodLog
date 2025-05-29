@@ -2,6 +2,7 @@ import EntryPopup from "./EntryPopup";
 
 function JournalEntry(props) {
   const isOpen = props.entryOpen === props.id;
+  const formattedDate = new Date(props.date).toDateString();
 
   return (
     <div>
@@ -15,7 +16,7 @@ function JournalEntry(props) {
         <div className="flex flex-col mr-2 w-full">
           <p className="font-semibold">{props.title}</p>
           <div className="flex gap-3">
-            <p className="text-zinc-400">{props.date}</p>
+            <p className="text-zinc-400">{formattedDate}</p>
             <p className="text-zinc-400 truncate flex-1">{props.caption}</p>
           </div>
         </div>
