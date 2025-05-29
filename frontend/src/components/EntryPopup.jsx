@@ -5,7 +5,7 @@ function EntryPopup(props) {
     <AnimatePresence>
       {props.trigger && (
         <motion.div
-          className="fixed inset-0 bg-zinc-900/60 text-zinc-200 z-10 flex justify-center items-center p-10"
+          className="fixed inset-0 bg-zinc-700/70 text-zinc-200 z-10 flex justify-center items-center p-10"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}

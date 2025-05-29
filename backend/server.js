@@ -105,15 +105,18 @@ app.get("/journals", authenticateToken, async (req, res) => {
 // create new journal
 app.post("/journals", authenticateToken, async (req, res) => {
   try {
+    const dateInput = new Date(req.body.date);
+    const formattedDate = dateInput.toISOString().slice(0, 10);
     const newJournal = await Journal.create({
       username: req.user.username,
       title: req.body.title,
-      date: req.body.date,
+      date: formattedDate,
       caption: req.body.caption,
     });
     console.log(newJournal);
     res.status(201).json({ message: "New journal entry created" });
-  } catch {
+  } catch (err) {
+    console.error(err);
     res.status(500).json({ message: "Server error" });
   }
 });

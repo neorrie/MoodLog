@@ -4,7 +4,7 @@ const journalSchema = new mongoose.Schema({
   username: String,
   title: String,
   caption: String,
-  date: Date,
+  date: String,
 });
 
 const Journal = mongoose.model("Journal", journalSchema);

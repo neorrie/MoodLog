@@ -63,7 +63,6 @@ function Dashboard() {
                   id={index}
                   title={journal.title}
                   date={journal.date}
-                  imgURL={journal.imgURL}
                   caption={journal.caption}
                   entryOpen={entryOpen}
                   setEntryOpen={setEntryOpen}
