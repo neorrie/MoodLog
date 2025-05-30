@@ -43,6 +43,20 @@ function EntryPopup(props) {
     }
   };
 
+  const deleteJournal = async () => {
+    const accessToken = localStorage.getItem("accessToken");
+    try {
+      await axios.delete(`http://localhost:8888/journals/${props.tempVar}`, {
+        headers: { Authorization: `Bearer ${accessToken}` },
+      });
+      console.log("✅ Successfully deleted");
+      props.setEntryOpen(null);
+      navigate("/dashboard");
+    } catch (error) {
+      console.error("❌ Error deleting", error);
+    }
+  };
+
   return (
     <AnimatePresence>
       {props.trigger && (
@@ -181,6 +195,9 @@ function EntryPopup(props) {
                     fill={"#ffffff"}
                     viewBox="0 0 24 24"
                     className="cursor-pointer"
+                    onClick={() => {
+                      deleteJournal();
+                    }}
                   >
                     <path d="M17 6V4c0-1.1-.9-2-2-2H9c-1.1 0-2 .9-2 2v2H2v2h2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8h2V6zM9 4h6v2H9zM6 20V8h12v12z"></path>
                     <path d="M9 10h2v8H9zM13 10h2v8h-2z"></path>

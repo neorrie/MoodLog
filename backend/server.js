@@ -134,7 +134,17 @@ app.post("/journals/:id", authenticateToken, async (req, res) => {
       }
     );
     res.status(200).json({ message: "Journal updated successfully" });
-  } catch (err) {
+  } catch {
+    res.status(500).json({ message: "Server error" });
+  }
+});
+
+//delete journal entry
+app.delete("/journals/:id", authenticateToken, async (req, res) => {
+  try {
+    const deleted = await Journal.findByIdAndDelete(req.params.id);
+    res.status(200).json({ message: "Journal deleted successfully", deleted });
+  } catch {
     res.status(500).json({ message: "Server error" });
   }
 });
