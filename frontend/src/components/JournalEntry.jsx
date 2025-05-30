@@ -26,6 +26,7 @@ function JournalEntry(props) {
         trigger={isOpen}
         title={props.title}
         date={props.date}
+        formattedDate={formattedDate}
         caption={props.caption}
         setEntryOpen={props.setEntryOpen}
       />
