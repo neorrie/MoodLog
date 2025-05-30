@@ -62,7 +62,6 @@ app.post("/users", async (req, res) => {
       email: req.body.email,
       password: hashedPassword,
     });
-    console.log(newUser);
     res.status(201).json({ message: "User successfully created!" });
   } catch {
     res.status(500).json({ message: "Server error" });
@@ -113,7 +112,6 @@ app.post("/journals", authenticateToken, async (req, res) => {
       date: req.body.date,
       caption: req.body.caption,
     });
-    console.log(newJournal);
     res.status(201).json({ message: "New journal entry created" });
   } catch (err) {
     console.error(err);
@@ -124,10 +122,9 @@ app.post("/journals", authenticateToken, async (req, res) => {
 // update journal entry
 app.post("/journals/:id", authenticateToken, async (req, res) => {
   try {
-    const journalId = req.params.id;
     const { title, caption, date } = req.body;
     await Journal.updateOne(
-      { _id: journalId },
+      { _id: req.params.id },
       {
         $set: {
           title,
@@ -138,7 +135,6 @@ app.post("/journals/:id", authenticateToken, async (req, res) => {
     );
     res.status(200).json({ message: "Journal updated successfully" });
   } catch (err) {
-    console.error(err);
     res.status(500).json({ message: "Server error" });
   }
 });

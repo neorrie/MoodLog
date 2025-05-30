@@ -1,13 +1,14 @@
 import DashboardNavBar from "../components/DashboardNavBar.jsx";
 import JournalEntry from "../components/JournalEntry.jsx";
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import axios from "axios";
 
 function Dashboard() {
   const [searchEntry, setSearchEntry] = useState("");
   const [entryOpen, setEntryOpen] = useState(null);
   const [journalData, setJournalData] = useState([]);
+  const location = useLocation();
 
   useEffect(() => {
     async function fetchPosts() {
@@ -23,7 +24,7 @@ function Dashboard() {
       }
     }
     fetchPosts();
-  }, []);
+  }, [location]);
 
   return (
     <div className="text-zinc-200">
