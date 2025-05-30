@@ -12,101 +12,74 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-// const getData = async () => {
-//   const tempData = [
-//     {
-//       title: "A Day at the Beach",
-//       caption: "It was sunny and relaxing.",
-//       date: new Date("2025-05-01"),
-//     },
-//     {
-//       title: "Study Marathon",
-//       caption: "Prepared for exams all day.",
-//       date: new Date("2025-05-02"),
-//     },
-//     {
-//       title: "Evening Walk",
-//       caption: "Watched the sunset by the park.",
-//       date: new Date("2025-05-03"),
-//     },
-//   ];
-
-//   try {
-//     for (const entry of tempData) {
-//       await Journal.create({
-//         username: "gappaneo",
-//         title: entry.title,
-//         caption: entry.caption,
-//         date: entry.date,
-//       });
-//       console.log(`Journal entry "${entry.title}" created.`);
-//     }
-//     console.log("All tempData entries have been uploaded.");
-//   } catch (error) {
-//     console.error("Error uploading tempData:", error);
-//   }
-// };
-
-//user registration
+/** -------------------- User Registration -------------------- */
 app.post("/users", async (req, res) => {
   try {
-    //incomplete - frontend should refresh and return some kind of popup notification upon failure
     const existingUser = await User.findOne({ username: req.body.username });
     if (existingUser) {
       return res.status(409).json({ message: "Username already taken" });
     }
+
     const hashedPassword = await bcrypt.hash(req.body.password, 10);
-    const newUser = await User.create({
+    await User.create({
       name: req.body.name,
       username: req.body.username,
       email: req.body.email,
       password: hashedPassword,
     });
+
     res.status(201).json({ message: "User successfully created!" });
   } catch {
     res.status(500).json({ message: "Server error" });
   }
 });
 
-//user login
+/** -------------------- User Login -------------------- */
 app.post("/users/login", async (req, res) => {
-  const user = await User.findOne({ username: req.body.username })
-    .lean()
-    .exec();
-  if (!user) {
-    return res.status(400).send("Authentication failed");
-  }
   try {
-    if (await bcrypt.compare(req.body.password, user.password)) {
-      const payload = { username: user.username };
-      const accessToken = jwt.sign(payload, process.env.ACCESS_TOKEN_SECRET);
-      res.json({ accessToken: accessToken });
-    } else {
+    const user = await User.findOne({ username: req.body.username })
+      .lean()
+      .exec();
+    if (!user) {
+      return res
+        .status(401)
+        .json({ message: "Authentication failed: user not found" });
+    }
+
+    const passwordMatch = await bcrypt.compare(
+      req.body.password,
+      user.password
+    );
+    if (!passwordMatch) {
       return res
         .status(401)
         .json({ message: "Authentication failed: incorrect password" });
     }
+
+    const payload = { username: user.username };
+    const accessToken = jwt.sign(payload, process.env.ACCESS_TOKEN_SECRET);
+    res.status(200).json({ accessToken });
   } catch {
     res.status(500).json({ message: "Server error" });
   }
 });
 
-// to be rendered on dashboard
+/** -------------------- Get All Journals -------------------- */
 app.get("/journals", authenticateToken, async (req, res) => {
   try {
     const journalList = await Journal.find({
       username: req.user.username,
     }).sort({ date: -1 });
-    res.json(journalList);
+    res.status(200).json(journalList);
   } catch {
     res.status(500).json({ message: "Server error" });
   }
 });
 
-// create new journal
+/** -------------------- Create New Journal -------------------- */
 app.post("/journals", authenticateToken, async (req, res) => {
   try {
-    const newJournal = await Journal.create({
+    await Journal.create({
       username: req.user.username,
       title: req.body.title,
       date: req.body.date,
@@ -119,40 +92,44 @@ app.post("/journals", authenticateToken, async (req, res) => {
   }
 });
 
-// update journal entry
+/** -------------------- Update Journal -------------------- */
 app.post("/journals/:id", authenticateToken, async (req, res) => {
   try {
     const { title, caption, date } = req.body;
-    await Journal.updateOne(
+
+    const updateResult = await Journal.updateOne(
       { _id: req.params.id },
-      {
-        $set: {
-          title,
-          caption,
-          date,
-        },
-      }
+      { $set: { title, caption, date } }
     );
+
+    if (updateResult.matchedCount === 0) {
+      return res.status(404).json({ message: "Journal not found" });
+    }
+
     res.status(200).json({ message: "Journal updated successfully" });
   } catch {
     res.status(500).json({ message: "Server error" });
   }
 });
 
-//delete journal entry
+/** -------------------- Delete Journal -------------------- */
 app.delete("/journals/:id", authenticateToken, async (req, res) => {
   try {
     const deleted = await Journal.findByIdAndDelete(req.params.id);
-    res.status(200).json({ message: "Journal deleted successfully", deleted });
+    if (!deleted) {
+      return res.status(404).json({ message: "Journal not found" });
+    }
+    res.status(200).json({ message: "Journal deleted successfully" });
   } catch {
     res.status(500).json({ message: "Server error" });
   }
 });
 
+/** -------------------- Middleware -------------------- */
 function authenticateToken(req, res, next) {
   const authHeader = req.headers["authorization"];
   const token = authHeader && authHeader.split(" ")[1];
-  if (token == null) return res.status(401).send("You do not have access");
+  if (!token) return res.status(401).send("You do not have access");
   jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, payload) => {
     if (err) return res.status(403).send("Invalid token");
     req.user = payload;
@@ -160,6 +137,7 @@ function authenticateToken(req, res, next) {
   });
 }
 
+/** -------------------- Start Server -------------------- */
 app.listen(8888, () => {
   connectDB();
 });
