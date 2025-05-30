@@ -126,8 +126,7 @@ app.post("/journals/:id", authenticateToken, async (req, res) => {
   try {
     const journalId = req.params.id;
     const { title, caption, date } = req.body;
-
-    const updated = await Journal.updateOne(
+    await Journal.updateOne(
       { _id: journalId },
       {
         $set: {
@@ -137,7 +136,6 @@ app.post("/journals/:id", authenticateToken, async (req, res) => {
         },
       }
     );
-    console.log(updated);
     res.status(200).json({ message: "Journal updated successfully" });
   } catch (err) {
     console.error(err);
