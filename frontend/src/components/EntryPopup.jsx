@@ -1,6 +1,8 @@
 import { motion, AnimatePresence } from "motion/react";
 import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 function EntryPopup(props) {
   const [isEditing, setIsEditing] = useState(false);
@@ -19,6 +21,22 @@ function EntryPopup(props) {
       setValue("date", tempDate);
     }
   }, [isEditing, props.caption, props.date, props.title, setValue]);
+
+  const navigate = useNavigate();
+
+  const onSubmit = async (data) => {
+    const accessToken = localStorage.getItem("accessToken");
+    try {
+      //endpoint not completed
+      await axios.post("http://localhost:8888/journals......", data, {
+        headers: { Authorization: `Bearer ${accessToken}` },
+      });
+      console.log("✅ Successfully edited your journal entry");
+      navigate("/dashboard");
+    } catch (error) {
+      console.error("❌ Error editing journal entry", error);
+    }
+  };
 
   return (
     <AnimatePresence>
@@ -54,7 +72,7 @@ function EntryPopup(props) {
             </div>
 
             {isEditing ? (
-              <form onSubmit={handleSubmit()}>
+              <form onSubmit={handleSubmit(onSubmit())}>
                 <div className="grid grid-cols-2 gap-4 my-4 w-full flex-grow">
                   <div>
                     <label htmlFor="title" className="block mb-1">

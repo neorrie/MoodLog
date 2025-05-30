@@ -121,6 +121,18 @@ app.post("/journals", authenticateToken, async (req, res) => {
   }
 });
 
+app.post(
+  "/journals/something goes here",
+  authenticateToken,
+  async (req, res) => {
+    try {
+    } catch (err) {
+      console.error(err);
+      res.status(500).json({ message: "Server error" });
+    }
+  }
+);
+
 function authenticateToken(req, res, next) {
   const authHeader = req.headers["authorization"];
   const token = authHeader && authHeader.split(" ")[1];
