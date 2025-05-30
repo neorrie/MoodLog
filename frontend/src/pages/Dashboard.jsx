@@ -16,6 +16,7 @@ function Dashboard() {
         const response = await axios.get("http://localhost:8888/journals", {
           headers: { Authorization: `Bearer ${accessToken}` },
         });
+        console.log(response.data);
         setJournalData(response.data);
       } catch (error) {
         console.error("Error fetching posts:", error);
@@ -68,6 +69,7 @@ function Dashboard() {
                 <JournalEntry
                   key={index}
                   id={index}
+                  tempVar={journal._id}
                   title={journal.title}
                   date={journal.date}
                   caption={journal.caption}

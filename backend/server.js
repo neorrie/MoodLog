@@ -121,17 +121,29 @@ app.post("/journals", authenticateToken, async (req, res) => {
   }
 });
 
-app.post(
-  "/journals/something goes here",
-  authenticateToken,
-  async (req, res) => {
-    try {
-    } catch (err) {
-      console.error(err);
-      res.status(500).json({ message: "Server error" });
-    }
+// update journal entry
+app.post("/journals/:id", authenticateToken, async (req, res) => {
+  try {
+    const journalId = req.params.id;
+    const { title, caption, date } = req.body;
+
+    const updated = await Journal.updateOne(
+      { _id: journalId },
+      {
+        $set: {
+          title,
+          caption,
+          date,
+        },
+      }
+    );
+    console.log(updated);
+    res.status(200).json({ message: "Journal updated successfully" });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: "Server error" });
   }
-);
+});
 
 function authenticateToken(req, res, next) {
   const authHeader = req.headers["authorization"];

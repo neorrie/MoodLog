@@ -24,6 +24,7 @@ function JournalEntry(props) {
 
       <EntryPopup
         trigger={isOpen}
+        tempVar={props.tempVar}
         title={props.title}
         date={props.date}
         formattedDate={formattedDate}

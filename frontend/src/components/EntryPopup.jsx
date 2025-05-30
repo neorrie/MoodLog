@@ -27,11 +27,16 @@ function EntryPopup(props) {
   const onSubmit = async (data) => {
     const accessToken = localStorage.getItem("accessToken");
     try {
-      //endpoint not completed
-      await axios.post("http://localhost:8888/journals......", data, {
-        headers: { Authorization: `Bearer ${accessToken}` },
-      });
+      await axios.post(
+        `http://localhost:8888/journals/${props.tempVar}`,
+        data,
+        {
+          headers: { Authorization: `Bearer ${accessToken}` },
+        }
+      );
       console.log("✅ Successfully edited your journal entry");
+      props.setEntryOpen(null);
+      setIsEditing(false);
       navigate("/dashboard");
     } catch (error) {
       console.error("❌ Error editing journal entry", error);
@@ -72,7 +77,7 @@ function EntryPopup(props) {
             </div>
 
             {isEditing ? (
-              <form onSubmit={handleSubmit(onSubmit())}>
+              <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="grid grid-cols-2 gap-4 my-4 w-full flex-grow">
                   <div>
                     <label htmlFor="title" className="block mb-1">
@@ -91,7 +96,6 @@ function EntryPopup(props) {
                       {errors.title?.message}
                     </p>
                   </div>
-
                   <div>
                     <label htmlFor="date" className="block mb-1">
                       Date
@@ -141,7 +145,7 @@ function EntryPopup(props) {
                 transition ease-in-out duration-250"
                     type="submit"
                   >
-                    Create
+                    Edit
                   </button>
                 </div>
               </form>
@@ -178,7 +182,6 @@ function EntryPopup(props) {
                     viewBox="0 0 24 24"
                     className="cursor-pointer"
                   >
-                    {/* Boxicons v3.0 https://boxicons.com | License  https://docs.boxicons.com/free */}
                     <path d="M17 6V4c0-1.1-.9-2-2-2H9c-1.1 0-2 .9-2 2v2H2v2h2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8h2V6zM9 4h6v2H9zM6 20V8h12v12z"></path>
                     <path d="M9 10h2v8H9zM13 10h2v8h-2z"></path>
                   </svg>
