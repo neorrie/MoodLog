@@ -37,7 +37,7 @@ I would like to add in the following features eventually:
 In the works
 
 ## Screenshots
-<img src="https://github.com/user-attachments/assets/c3f371a4-32e9-4d35-a5a8-4df9ab03e024" alt="Sample Image" width="400" height="300">
+<img src="https://github.com/user-attachments/assets/c3f371a4-32e9-4d35-a5a8-4df9ab03e024" alt="Sample Image" width="307" height="444">
 ![Image](https://github.com/user-attachments/assets/bbb434d7-65d9-4c7b-a5be-0b401706bc69)
 ![Image](https://github.com/user-attachments/assets/81b9016e-a5f6-420d-8eea-6870344d2e92)
 ![Image](https://github.com/user-attachments/assets/156f10b6-0f1e-4274-a7c6-cac8394555ed)
