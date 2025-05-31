@@ -35,3 +35,6 @@ I would like to add in the following features eventually:
 
 ## Project Status
 In the works
+
+## Screenshots
+![Image](https://github.com/user-attachments/assets/2beb19ca-4cf4-4fc4-a3c3-87dcb675e9b7)
