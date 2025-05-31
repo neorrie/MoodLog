@@ -37,4 +37,4 @@ I would like to add in the following features eventually:
 In the works
 
 ## Screenshots
-<img src="https://github.com/user-attachments/assets/c3f371a4-32e9-4d35-a5a8-4df9ab03e024" alt="Sample Image" width="307" height="444"> <img src="https://github.com/user-attachments/assets/bbb434d7-65d9-4c7b-a5be-0b401706bc69" alt="Sample Image" width="307" height="444"> <img src="https://github.com/user-attachments/assets/81b9016e-a5f6-420d-8eea-6870344d2e92" alt="Sample Image" width="307" height="444"> <img src="https://github.com/user-attachments/assets/156f10b6-0f1e-4274-a7c6-cac8394555ed" alt="Sample Image" width="307" height="444">
+<img src="https://github.com/user-attachments/assets/04c9df8d-f216-44a6-9c16-5f03d096d18d" alt="Sample Image" width="307" height="444"> <img src="https://github.com/user-attachments/assets/bbb434d7-65d9-4c7b-a5be-0b401706bc69" alt="Sample Image" width="307" height="444"> <img src="https://github.com/user-attachments/assets/b866fe0b-bbbd-4c32-8f0c-87d775414877" alt="Sample Image" width="307" height="444"> <img src="https://github.com/user-attachments/assets/156f10b6-0f1e-4274-a7c6-cac8394555ed" alt="Sample Image" width="307" height="444">
