@@ -37,6 +37,7 @@ I would like to add in the following features eventually:
 In the works
 
 ## Screenshots
-![Image](https://github.com/user-attachments/assets/2beb19ca-4cf4-4fc4-a3c3-87dcb675e9b7)
-![Image](https://github.com/user-attachments/assets/2b3b78f9-314d-46df-a0ac-a77e641381f3)
-![Image](https://github.com/user-attachments/assets/e9f3c0ea-2b78-43f0-a9ff-51d8ebe755a5)
+![Image](https://github.com/user-attachments/assets/c3f371a4-32e9-4d35-a5a8-4df9ab03e024)
+![Image](https://github.com/user-attachments/assets/bbb434d7-65d9-4c7b-a5be-0b401706bc69)
+![Image](https://github.com/user-attachments/assets/81b9016e-a5f6-420d-8eea-6870344d2e92)
+![Image](https://github.com/user-attachments/assets/156f10b6-0f1e-4274-a7c6-cac8394555ed)
