@@ -38,3 +38,6 @@ In the works
 
 ## Screenshots
 ![Image](https://github.com/user-attachments/assets/2beb19ca-4cf4-4fc4-a3c3-87dcb675e9b7)
+![Image](https://github.com/user-attachments/assets/2b3b78f9-314d-46df-a0ac-a77e641381f3)
+![Image](https://github.com/user-attachments/assets/e9f3c0ea-2b78-43f0-a9ff-51d8ebe755a5)
+![Image](https://github.com/user-attachments/assets/2beb19ca-4cf4-4fc4-a3c3-87dcb675e9b7)
