@@ -18,7 +18,7 @@ MoodLog is a simple MERN-based journaling app that allows users to record meanin
 
 ## Installation
 
-We will be using npm to install the dependencies required to run this project. Run the following:
+Use npm to install the dependencies required to run this project. Run the following:
 
 ```bash
 # This installs backend dependencies
