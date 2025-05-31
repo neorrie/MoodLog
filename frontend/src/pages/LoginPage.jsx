@@ -5,6 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import { motion } from "motion/react";
+import { Toaster, toast } from "sonner";
 
 function LoginPage() {
   const navigate = useNavigate();
@@ -21,16 +22,16 @@ function LoginPage() {
         data
       );
       const accessToken = response.data.accessToken;
-      console.log("✅ Logged in");
       localStorage.setItem("accessToken", accessToken);
       navigate("/dashboard");
     } catch (error) {
-      console.error("❌ Error logging in:", error);
+      toast.error("Oops! Something went wrong. Please try again later");
     }
   };
 
   return (
     <>
+      <Toaster richColors position="top-right" />
       <NavBar></NavBar>
       <div className="h-[85dvh] text-zinc-200 flex flex-col md:flex-row md:gap-20 md:mx-10 items-center justify-center">
         <motion.div

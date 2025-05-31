@@ -1,4 +1,5 @@
 import EntryPopup from "./EntryPopup";
+import { motion } from "motion/react";
 
 function JournalEntry(props) {
   const isOpen = props.entryOpen === props.id;

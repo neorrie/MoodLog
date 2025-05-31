@@ -10,7 +10,7 @@ import LoginPage from "./pages/LoginPage.jsx";
 import RegistrationPage from "./pages/RegistrationPage.jsx";
 import Dashboard from "./pages/Dashboard.jsx";
 import NewEntryPage from "./pages/NewEntryPage.jsx";
-import Experiments from "./pages/Experiments.jsx";
+import Toast from "./components/Toast.jsx";
 
 const router = createBrowserRouter([
   { path: "/", element: <App /> },
@@ -21,7 +21,7 @@ const router = createBrowserRouter([
   { path: "/register", element: <RegistrationPage /> },
   { path: "/dashboard", element: <Dashboard /> },
   { path: "/new", element: <NewEntryPage /> },
-  { path: "/experiments", element: <Experiments /> },
+  { path: "/toast", element: <Toast /> },
 ]);
 
 createRoot(document.getElementById("root")).render(

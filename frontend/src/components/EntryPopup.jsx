@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { Toaster, toast } from "sonner";
 
 function EntryPopup(props) {
   const [isEditing, setIsEditing] = useState(false);
@@ -34,12 +35,12 @@ function EntryPopup(props) {
           headers: { Authorization: `Bearer ${accessToken}` },
         }
       );
-      console.log("✅ Successfully edited your journal entry");
+      toast.success("Your changes have been saved");
       props.setEntryOpen(null);
       setIsEditing(false);
       navigate("/dashboard");
     } catch (error) {
-      console.error("❌ Error editing journal entry", error);
+      toast.error("Oops! Something went wrong. Please try again later");
     }
   };
 
@@ -49,16 +50,17 @@ function EntryPopup(props) {
       await axios.delete(`http://localhost:8888/journals/${props.tempVar}`, {
         headers: { Authorization: `Bearer ${accessToken}` },
       });
-      console.log("✅ Successfully deleted");
+      toast.success("Journal entry deleted");
       props.setEntryOpen(null);
       navigate("/dashboard");
     } catch (error) {
-      console.error("❌ Error deleting", error);
+      toast.error("Oops! Something went wrong. Please try again later");
     }
   };
 
   return (
     <AnimatePresence>
+      <Toaster richColors position="top-right" />
       {props.trigger && (
         <motion.div
           className="fixed inset-0 bg-zinc-700/70 text-zinc-200 z-10 flex justify-center items-center p-10"

@@ -1,6 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import axios from "axios";
+import { Toaster, toast } from "sonner";
 
 function NewEntryPage() {
   const navigate = useNavigate();
@@ -16,15 +17,16 @@ function NewEntryPage() {
       await axios.post("http://localhost:8888/journals", data, {
         headers: { Authorization: `Bearer ${accessToken}` },
       });
-
-      navigate("/dashboard");
+      toast.success("Journal entry created");
+      setTimeout(() => navigate("/dashboard"), 1000);
     } catch (error) {
-      console.error("❌ Error:", error);
+      toast.error("Oops! Something went wrong. Please try again later");
     }
   };
 
   return (
     <div className="h-dvh flex flex-col justify-center items-center">
+      <Toaster richColors position="top-right" />
       <form
         onSubmit={handleSubmit(onSubmit)}
         className="bg-zinc-800 text-zinc-200 p-4 rounded-2xl"

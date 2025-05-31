@@ -5,6 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import { motion } from "motion/react";
+import { Toaster, toast } from "sonner";
 
 function RegistrationPage() {
   const navigate = useNavigate();
@@ -15,16 +16,17 @@ function RegistrationPage() {
   } = useForm();
   const onSubmit = async (data) => {
     try {
-      const response = await axios.post("http://localhost:8888/users", data);
-      console.log("✅ Success:", response.data);
-      navigate("/login");
+      await axios.post("http://localhost:8888/users", data);
+      toast.success("Registration successful! Please login");
+      setTimeout(() => navigate("/login"), 1500);
     } catch (error) {
-      console.error("❌ Error submitting signup:", error);
+      toast.error("Oops! Something went wrong. Please try again later");
     }
   };
 
   return (
     <>
+      <Toaster richColors position="top-right" />
       <NavBar></NavBar>
       <div className="h-[85dvh] text-zinc-200 flex flex-col md:flex-row md:gap-20 md:mx-10 items-center justify-center">
         <motion.div
