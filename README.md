@@ -18,7 +18,7 @@ MoodLog is a simple MERN-based journaling app that allows users to record meanin
 
 ## Installation
 
-We will be using npm to install the dependencies required to run this project. Run the following:
+Use npm to install the dependencies required to run this project. Run the following:
 
 ```bash
 # This installs backend dependencies
@@ -37,6 +37,4 @@ I would like to add in the following features eventually:
 In the works
 
 ## Screenshots
-![Image](https://github.com/user-attachments/assets/2beb19ca-4cf4-4fc4-a3c3-87dcb675e9b7)
-![Image](https://github.com/user-attachments/assets/2b3b78f9-314d-46df-a0ac-a77e641381f3)
-![Image](https://github.com/user-attachments/assets/e9f3c0ea-2b78-43f0-a9ff-51d8ebe755a5)
+<img src="https://github.com/user-attachments/assets/04c9df8d-f216-44a6-9c16-5f03d096d18d" alt="Sample Image" width="307" height="444"> <img src="https://github.com/user-attachments/assets/bbb434d7-65d9-4c7b-a5be-0b401706bc69" alt="Sample Image" width="307" height="444"> <img src="https://github.com/user-attachments/assets/b866fe0b-bbbd-4c32-8f0c-87d775414877" alt="Sample Image" width="307" height="444"> <img src="https://github.com/user-attachments/assets/156f10b6-0f1e-4274-a7c6-cac8394555ed" alt="Sample Image" width="307" height="444">
