@@ -5,7 +5,6 @@ import "./css/index.css";
 import App from "./App.jsx";
 import NotFoundPage from "./pages/NotFoundPage.jsx";
 import AboutPage from "./pages/AboutPage.jsx";
-import GalleryPage from "./pages/GalleryPage.jsx";
 import LoginPage from "./pages/LoginPage.jsx";
 import RegistrationPage from "./pages/RegistrationPage.jsx";
 import Dashboard from "./pages/Dashboard.jsx";
@@ -16,7 +15,6 @@ const router = createBrowserRouter([
   { path: "/", element: <App /> },
   { path: "*", element: <NotFoundPage /> },
   { path: "/about", element: <AboutPage /> },
-  { path: "/gallery", element: <GalleryPage /> },
   { path: "/login", element: <LoginPage /> },
   { path: "/register", element: <RegistrationPage /> },
   { path: "/dashboard", element: <Dashboard /> },
