@@ -2,6 +2,9 @@
 
 MoodLog is a simple MERN-based journaling app that allows users to record meaningful memories. As I am new to the development space, this was a project for me to hone my skills and, hopefully by the end, create something meaningful 
 
+## Figma link
+https://www.figma.com/design/R6uYrQdlbUXJOMhPfyXMjL/MoodLog-Prototype?node-id=0-1&t=XEhIgfAu9I3kpQJC-1
+
 ## Features
 
 - 📓 Create personal journal entries (title, caption, and date)
