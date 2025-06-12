@@ -18,7 +18,7 @@ https://www.figma.com/design/R6uYrQdlbUXJOMhPfyXMjL/MoodLog-Prototype?node-id=0-
 - **Backend:** Node.js, Express.js  
 - **Database:** MongoDB  
 - **Authentication:** JSON Web Tokens (JWT)
-- **Other Softwares used:** JIRA (for task tracking)
+- **Other Softwares used:** JIRA (for task tracking) & Figma
 
 ## Installation
 
