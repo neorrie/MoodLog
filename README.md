@@ -7,10 +7,10 @@ https://www.figma.com/design/R6uYrQdlbUXJOMhPfyXMjL/MoodLog-Prototype?node-id=0-
 
 ## Features
 
-- 📓 Create personal journal entries (title, caption, and date)
-- ✏️ Edit existing entries
-- 🗑️ Delete entries
-- 🔐 User authentication with login/signup
+- User authentication with login/signup
+- Create personal journal entries (title, caption, and date)
+- Edit existing entries
+- Delete entries
 
 ## Tech Stack
 
@@ -32,13 +32,11 @@ Use npm to install the dependencies required to run this project. Run the follow
 # This installs frontend dependencies
  npm install
 ```
-## Roadmap
+## Future ideas & Development
 I would like to add in the following features eventually:
-- 🖼️ Add image upload support for journal entries
-- ⏰ Implement a notification system to remind users to journal daily
-
-## Project Status
-In the works
+- Add image upload support for journal entries
+- Ability to filter journal entries
+- Ability to create folders/sub-sections to store journal entries
 
 ## Screenshots
 <img src="https://github.com/user-attachments/assets/04c9df8d-f216-44a6-9c16-5f03d096d18d" alt="Sample Image" width="307" height="444"> <img src="https://github.com/user-attachments/assets/bbb434d7-65d9-4c7b-a5be-0b401706bc69" alt="Sample Image" width="307" height="444"> <img src="https://github.com/user-attachments/assets/b866fe0b-bbbd-4c32-8f0c-87d775414877" alt="Sample Image" width="307" height="444"> <img src="https://github.com/user-attachments/assets/156f10b6-0f1e-4274-a7c6-cac8394555ed" alt="Sample Image" width="307" height="444">
